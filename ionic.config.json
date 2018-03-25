@@ -1,0 +1,8 @@
+{
+  "name": "fiusapp",
+  "app_id": "0f40ec2a",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
