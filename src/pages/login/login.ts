@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { LoadingController } from 'ionic-angular';
+
 import { GooglePlus } from 'ionic-native';
-import { HomePage } from '../home/home';
+import { InicioPage } from '../inicio/inicio';
 
 
 @IonicPage()
@@ -11,8 +13,12 @@ import { HomePage } from '../home/home';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public loadingCtrl: LoadingController
+  ) {
+}
 
   login(){
     
@@ -20,13 +26,17 @@ export class LoginPage {
       'webClientId': '449937519255-9hb7bikfdpjnk369jkmi91kpl6tjf6ra.apps.googleusercontent.com'
     }).then((res) => {
         console.log(res);
-        this.navCtrl.setRoot(HomePage);
-        //console.log("éxito");
+        this.navCtrl.setRoot(InicioPage);
+        console.log("éxito");
     }, (err) => {
         console.log(err);
-        this.navCtrl.setRoot(LoginPage);
+        let loader = this.loadingCtrl.create({
+          content: "Please wait...",
+          duration: 2000
+        });
+        loader.present();
         console.log("fallido");
-
+        this.navCtrl.setRoot(InicioPage);
     });
 
   }

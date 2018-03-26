@@ -1,19 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule, Tab } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { InicioPage } from '../pages/inicio/inicio';
 import { LoginPage } from '../pages/login/login';
-
+import { TabMenuPage } from '../pages/tab-menu/tab-menu';
+import { RedesPage } from '../pages/redes/redes';
+import { ProcesosPage } from '../pages/procesos/procesos';
+import { EscuelasPage } from '../pages/escuelas/escuelas';
+import { UnidadesPage } from '../pages/unidades/unidades';
+import { PreguntasPage } from '../pages/preguntas/preguntas';
+import { PensumCivilPage } from '../pages/pensum-civil/pensum-civil';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    LoginPage
+    LoginPage,
+    InicioPage,
+    TabMenuPage,
+    RedesPage,
+    ProcesosPage,
+    EscuelasPage,
+    UnidadesPage,
+    PreguntasPage,
+    PensumCivilPage
   ],
   imports: [
     BrowserModule,
@@ -22,8 +35,15 @@ import { LoginPage } from '../pages/login/login';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    LoginPage
+    LoginPage,
+    InicioPage,
+    TabMenuPage,
+    RedesPage,
+    ProcesosPage,
+    EscuelasPage,
+    UnidadesPage,
+    PreguntasPage,
+    PensumCivilPage
   ],
   providers: [
     StatusBar,

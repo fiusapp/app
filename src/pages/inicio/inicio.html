@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Inicio</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form>
+<ion-card>
+  <ion-card-header>
+    ¿Qué necesitas?
+  </ion-card-header>
+
+  <ion-list>
+    <button (click)="gotoRedes()" ion-item>
+      <ion-icon name="school" item-start></ion-icon>
+      Redes de Estudio
+    </button>
+
+    <button (click)="gotoProcesos()"ion-item>
+      <ion-icon name="medical" item-start></ion-icon>
+      Procesos
+    </button>
+
+    <button (click)="gotoEscuelas()"ion-item>
+      <ion-icon name="cafe" item-start></ion-icon>
+      Escuelas
+    </button>
+
+    <button (click)="gotoUnidades()"ion-item>
+      <ion-icon name="paw" item-start></ion-icon>
+      Unidades Académicas
+    </button>
+
+
+    <button (click)="gotoPreguntas()" ion-item>
+      <ion-icon name="planet" item-start></ion-icon>
+      Preguntas Frecuentes
+    </button>
+
+  </ion-list>
+</ion-card>
+</form> 
+</ion-content>
