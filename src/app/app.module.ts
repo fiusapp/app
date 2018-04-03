@@ -1,8 +1,10 @@
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule, Tab } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { DataFinder } from '../../datafinder';
 
 import { MyApp } from './app.component';
 import { InicioPage } from '../pages/inicio/inicio';
@@ -30,7 +32,8 @@ import { PensumCivilPage } from '../pages/pensum-civil/pensum-civil';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -48,7 +51,8 @@ import { PensumCivilPage } from '../pages/pensum-civil/pensum-civil';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DataFinder
   ]
 })
 export class AppModule {}

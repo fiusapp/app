@@ -29,12 +29,12 @@ export class LoginPage {
         this.navCtrl.setRoot(InicioPage);
         console.log("éxito");
     }, (err) => {
-        console.log(err);
+        /*console.log(err);
         let loader = this.loadingCtrl.create({
           content: "Please wait...",
           duration: 2000
         });
-        loader.present();
+        loader.present();*/
         console.log("fallido");
         this.navCtrl.setRoot(InicioPage);
     });
