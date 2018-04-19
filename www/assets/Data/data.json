@@ -1,262 +1,316 @@
 {
-    "redes": [
+    "Redes": [
         {
-			"civil": [
-				{
-					"semestre1":[
-						{
-							"area1":[],
-							"area2":[],
-							"area3":[],
-							"area4":[],
-							"area5":[],
-							"area6":[
-								{
-									"codigo":"017",
-									"nombre":"Social Humanistica 1",
-									"creditos":"4",
-									"pre":[],
-									"post":[
-										{
-											"0":"019"
-										}
-									],
-									"optativo":"obligatorio"
-								},
-								{
-									"codigo":"101",
-									"nombre":"Matemática Básica 1",
-									"creditos":"7",
-									"pre":[],
-									"post":[
-										{
-											"0":"103",
-											"1":"147",
-											"2":"352"
-										}
-									],
-									"optativo":"obligatorio"
-								},
-								{
-									"codigo":"348",
-									"nombre":"Química General 1",
-									"creditos":"3",
-									"pre":[],
-									"post":[
-										{
-											"0":"352",
-											"1":"450",
-											"2":"368"
-										}
-									],
-									"optativo":"obligatorio"
-								},
-								{
-									"codigo":"039",
-									"nombre":"Deportes 1",
-									"creditos":"1",
-									"pre":[],
-									"post":[
-										{
-											"0":"040"
-										}
-									],
-									"optativo":"opcional"
-								},
-								{
-									"codigo":"069",
-									"nombre":"Técnica Complementaria 1",
-									"creditos":"3",
-									"pre":[],
-									"post":[
-										{
-											"0":"071"
-										}
-									],
-									"optativo":"obligatorio"
-								},
-								{
-									"codigo":"0006",
-									"nombre":"Idioma Técnico 1",
-									"creditos":"2",
-									"pre":[],
-									"post":[
-										{
-											"0":"0008"
-										}
-									],
-									"optativo":"opcional"
-								}
-							],
-							"area7":[],
-							"area8":[],
-							"area9":[],
-							"area10":[]
-						}
-					],
-					"semestre2":[
-						{
-							"area1":[],
-							"area2":[],
-							"area3":[],
-							"area4":[],
-							"area5":[],
-							"area6":[
-								{
-									"codigo":"005",
-									"nombre":"Técnicas de estudio y de Investigación",
-									"creditos":"3",
-									"pre":[],
-									"post":[
-										{
-											"0":"732"
-										}
-									],
-									"optativo":"obligatorio"
-								},
-								{
-									"codigo":"019",
-									"nombre":"Social Humanistica 2",
-									"creditos":"4",
-									"pre":[
-										{
-											"0":"017"
-										}
-									],
-									"post":[
-										{
-											"0":"010"
-										}
-									],
-									"optativo":"obligatorio"
-								},
-								{
-									"codigo":"103",
-									"nombre":"Matemática Básica 2",
-									"creditos":"7",
-									"pre":[
-										{
-											"0":"101"
-										}
-									],
-									"post":[
-										{
-											"0":"107",
-											"1":"150",
-											"2":"2025"
-										}
-									],
-									"optativo":"obligatorio"
-								},
-								{
-									"codigo":"147",
-									"nombre":"Física Básica",
-									"creditos":"5",
-									"pre":[
-										{
-											"0":"101"
-										}
-									],
-									"post":[
-										{
-											"0":"150",
-											"1":"352"
-										}
-									],
-									"optativo":"obligatorio"
-								},
-								{
-									"codigo":"040",
-									"nombre":"Deportes 2",
-									"creditos":"1",
-									"pre":[
-										{
-											"0":"039"
-										}
-									],
-									"post":[],
-									"optativo":"opcional"
-								},
-								{
-									"codigo":"071",
-									"nombre":"Técnica Complementaria 2",
-									"creditos":"3",
-									"pre":[
-										{
-											"0":"069"
-										}
-									],
-									"post":[],
-									"optativo":"obligatorio"
-								},
-								{
-									"codigo":"0008",
-									"nombre":"Idioma Técnico 2",
-									"creditos":"",
-									"pre":[
-										{
-											"0":"0006"
-										}
-									],
-									"post":[
-										{
-											"0":"0009"
-										}
-									],
-									"optativo":"opcional"
-								}
-							],
-							"area7":[],
-							"area8":[],
-							"area9":[],
-							"area10":[]
-						}
-					]
-					
-                },
+            "Civil": [
                 {
-                    "AreasNombres":[
+                    "Semestres": [
                         {
-                            "area1":"Area de Topografía y Transportes",
-							"area2":"Area de Estructuras",
-							"area3":"Area de Construcciones Civiles y Materiales de Construcción",
-							"area4":"Area de Hidráulica",
-							"area5":"Area de Planeamiento",
-                            "area6":"Area de Ciencias Básicas y Complementarias",
-                            "area7":"CESEM - ERIS",
-                            "area8":"Area de Administración",
-                            "area9":"EPS"
+                            "semestre": {
+                                "Areas": [
+                                    {
+                                        "area": []
+                                    },
+                                    {
+                                        "area": []
+                                    },
+                                    {
+                                        "area": []
+                                    },
+                                    {
+                                        "area": []
+                                    },
+                                    {
+                                        "area": []
+                                    },
+                                    {
+                                        "area": [
+                                            {
+                                                "codigo": "017",
+                                                "nombre": "Social Humanistica 1",
+                                                "creditos": "4",
+                                                "pre": [],
+                                                "post": [
+                                                    {
+                                                        "codigo": "019"
+                                                    }
+                                                ],
+                                                "tipo": "obligatorio"
+                                            },
+                                            {
+                                                "codigo": "101",
+                                                "nombre": "Matemática Básica 1",
+                                                "creditos": "7",
+                                                "pre": [],
+                                                "post": [
+                                                    {
+                                                        "codigo": "103"
+                                                    },
+                                                    {
+                                                        "codigo": "147"
+                                                    },
+                                                    {
+                                                        "codigo": "352"
+                                                    }
+                                                ],
+                                                "tipo": "obligatorio"
+                                            },
+                                            {
+                                                "codigo": "348",
+                                                "nombre": "Química General 1",
+                                                "creditos": "3",
+                                                "pre": [],
+                                                "post": [
+                                                    {
+                                                        "codigo": "352"
+                                                    },
+                                                    {
+                                                        "codigo": "450"
+                                                    },
+                                                    {
+                                                        "codigo": "368"
+                                                    }
+                                                ],
+                                                "tipo": "obligatorio"
+                                            },
+                                            {
+                                                "codigo": "039",
+                                                "nombre": "Deportes 1",
+                                                "creditos": "1",
+                                                "pre": [],
+                                                "post": [
+                                                    {
+                                                        "codigo": "040"
+                                                    }
+                                                ],
+                                                "tipo": "opcional"
+                                            },
+                                            {
+                                                "codigo": "069",
+                                                "nombre": "Técnica Complementaria 1",
+                                                "creditos": "3",
+                                                "pre": [],
+                                                "post": [
+                                                    {
+                                                        "codigo": "071"
+                                                    }
+                                                ],
+                                                "tipo": "obligatorio"
+                                            },
+                                            {
+                                                "codigo": "0006",
+                                                "nombre": "Idioma Técnico 1",
+                                                "creditos": "2",
+                                                "pre": [],
+                                                "post": [
+                                                    {
+                                                        "codigo": "0008"
+                                                    }
+                                                ],
+                                                "tipo": "opcional"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "area": []
+                                    },
+                                    {
+                                        "area": []
+                                    },
+                                    {
+                                        "area": []
+                                    },
+                                    {
+                                        "area": []
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "semestre": {
+                                "Areas": [
+                                    {
+                                        "area": []
+                                    },
+                                    {
+                                        "area": []
+                                    },
+                                    {
+                                        "area": []
+                                    },
+                                    {
+                                        "area": []
+                                    },
+                                    {
+                                        "area": []
+                                    },
+                                    {
+                                        "area": [
+                                            {
+                                                "codigo": "005",
+                                                "nombre": "Técnicas de estudio y de Investigación",
+                                                "creditos": "3",
+                                                "pre": [],
+                                                "post": [
+                                                    {
+                                                        "codigo": "732"
+                                                    }
+                                                ],
+                                                "tipo": "obligatorio"
+                                            },
+                                            {
+                                                "codigo": "019",
+                                                "nombre": "Social Humanistica 2",
+                                                "creditos": "4",
+                                                "pre": [
+                                                    {
+                                                        "codigo": "017"
+                                                    }
+                                                ],
+                                                "post": [
+                                                    {
+                                                        "codigo": "010"
+                                                    }
+                                                ],
+                                                "tipo": "obligatorio"
+                                            },
+                                            {
+                                                "codigo": "103",
+                                                "nombre": "Matemática Básica 2",
+                                                "creditos": "7",
+                                                "pre": [
+                                                    {
+                                                        "codigo": "101"
+                                                    }
+                                                ],
+                                                "post": [
+                                                    {
+                                                        "codigo": "107"
+                                                    },
+                                                    {
+                                                        "codigo": "150"
+                                                    },
+                                                    {
+                                                        "codigo": "2025"
+                                                    }
+                                                ],
+                                                "tipo": "obligatorio"
+                                            },
+                                            {
+                                                "codigo": "147",
+                                                "nombre": "Física Básica",
+                                                "creditos": "5",
+                                                "pre": [
+                                                    {
+                                                        "codigo": "101"
+                                                    }
+                                                ],
+                                                "post": [
+                                                    {
+                                                        "codigo": "150"
+                                                    },
+                                                    {
+                                                        "codigo": "352"
+                                                    }
+                                                ],
+                                                "tipo": "obligatorio"
+                                            },
+                                            {
+                                                "codigo": "040",
+                                                "nombre": "Deportes 2",
+                                                "creditos": "1",
+                                                "pre": [
+                                                    {
+                                                        "codigo": "039"
+                                                    }
+                                                ],
+                                                "post": [],
+                                                "tipo": "opcional"
+                                            },
+                                            {
+                                                "codigo": "071",
+                                                "nombre": "Técnica Complementaria 2",
+                                                "creditos": "3",
+                                                "pre": [
+                                                    {
+                                                        "codigo": "069"
+                                                    }
+                                                ],
+                                                "post": [],
+                                                "tipo": "obligatorio"
+                                            },
+                                            {
+                                                "codigo": "0008",
+                                                "nombre": "Idioma Técnico 2",
+                                                "creditos": "",
+                                                "pre": [
+                                                    {
+                                                        "codigo": "0006"
+                                                    }
+                                                ],
+                                                "post": [
+                                                    {
+                                                        "codigo": "0009"
+                                                    }
+                                                ],
+                                                "tipo": "opcional"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "area": []
+                                    },
+                                    {
+                                        "area": []
+                                    },
+                                    {
+                                        "area": []
+                                    },
+                                    {
+                                        "area": []
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "semestre": {}
+                        },
+                        {
+                            "semestre": {}
+                        },
+                        {
+                            "semestre": {}
                         }
                     ]
+                },
+                {
+                    "AreasNombres": {
+                        "Area de Topografía y Transportes": "area1",
+                        "Area de Estructuras": "area2",
+                        "Area de Construcciones Civiles y Materiales de Construcción": "area3",
+                        "Area de Hidráulica": "area4",
+                        "Area de Planeamiento": "area5",
+                        "Area de Ciencias Básicas y Complementarias": "area6",
+                        "CESEM - ERIS": "area7",
+                        "Area de Administración": "area8",
+                        "EPS": "area9"
+                    }
                 }
-			],
-			"civil2017": [
-				{
-					"name": "Udemy",
-            		"id": 39197
-				}
-			]
+            ],
+            "Civil2017": [
+                {}
+            ]
         }
     ],
-    "procesos": [
-        {
-            "name": "US",
-            "id": 1
-        }
-	],
-	"escuelas":[
-		{
-
-		}
-	],
-	"unidades":[
-		{
-
-		}
-	],
-	"preguntas":[
-		{
-
-		}
-	]
+    "Procesos": [
+        {}
+    ],
+    "Escuelas": [
+        {}
+    ],
+    "Unidades": [
+        {}
+    ],
+    "Preguntas": [
+        {}
+    ]
 }

@@ -21,6 +21,7 @@ import { PreguntasPage } from '../preguntas/preguntas';
 })
 export class InicioPage {
 
+  
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams

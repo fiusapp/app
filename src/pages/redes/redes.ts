@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PensumCivilPage } from '../pensum-civil/pensum-civil';
+import { PruebaPage } from '../prueba/prueba';
+import { InicioPage } from '../inicio/inicio';
 
 /**
  * Generated class for the RedesPage page.
@@ -48,7 +50,7 @@ export class RedesPage {
     if(red=="01 Ingenieria Civil"){
       this.navCtrl.setRoot(PensumCivilPage);
     }else if(red == "01 Ingenieria Civil 2017"){
-
+      this.navCtrl.setRoot(PruebaPage);
     }else if(red == "02 Ingenieria Quimica"){
 
     }else if(red == "03 Ingenieria Mecanica"){

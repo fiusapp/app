@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 823:
+/***/ 827:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18,21 +18,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var UnidadesPageModule = /** @class */ (function () {
+var UnidadesPageModule = (function () {
     function UnidadesPageModule() {
     }
-    UnidadesPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__unidades__["a" /* UnidadesPage */],
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__unidades__["a" /* UnidadesPage */]),
-            ],
-        })
-    ], UnidadesPageModule);
     return UnidadesPageModule;
 }());
+UnidadesPageModule = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_2__unidades__["a" /* UnidadesPage */],
+        ],
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__unidades__["a" /* UnidadesPage */]),
+        ],
+    })
+], UnidadesPageModule);
 
 //# sourceMappingURL=unidades.module.js.map
 

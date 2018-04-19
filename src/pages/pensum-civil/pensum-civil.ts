@@ -15,16 +15,22 @@ import { DataFinder } from '../../../datafinder';
   templateUrl: 'pensum-civil.html',
 })
 export class PensumCivilPage {
-  PensumCivil=[]; 
-  A1:any; A2:any; A3:any; A4:any; A5:any; A6:any; A7:any; A8:any; A9:any;
-  sem1=[]; sem2=[]; sem3=[]; sem4=[]; sem5=[]; sem6=[]; sem7=[]; sem8=[]; sem9=[]; sem10=[];
-  
+  PensumCivil = [];
+  nombresArea = [];
+  paginas = [];
+  semestres = [];
+  areas = [];
+  cursos = [];
+  pre = [];
+  post = [];
+
   constructor(
-    public navCtrl: NavController, 
-    public navParams: NavParams, 
+    public navCtrl: NavController,
+    public navParams: NavParams,
     private datafinder: DataFinder
-  ) {
-  }
+  ) { }
+
+
 
   ionViewDidLoad() {
     this.datafinder.getJSONData("assets/Data/data.json").then(data => {
@@ -32,24 +38,61 @@ export class PensumCivilPage {
     });
   }
 
-  SetData(data : any) {
-    this.PensumCivil = data.redes[0].civil;
-    this.sem1 = this.PensumCivil[0].semestre1[0].area6;
-    //Nombres de las Áreas
-    this.A1 = this.PensumCivil[1].AreasNombres[0].area1;
-    this.A2 = this.PensumCivil[1].AreasNombres[0].area2;
-    this.A3 = this.PensumCivil[1].AreasNombres[0].area3;
-    this.A4 = this.PensumCivil[1].AreasNombres[0].area4;
-    this.A5 = this.PensumCivil[1].AreasNombres[0].area5;
-    this.A6 = this.PensumCivil[1].AreasNombres[0].area6;
-    this.A7 = this.PensumCivil[1].AreasNombres[0].area7;
-    this.A8 = this.PensumCivil[1].AreasNombres[0].area8;
-    this.A9 = this.PensumCivil[1].AreasNombres[0].area9;
-    
-    //console.log(this.A1);
-    //console.log(this.networks);
+  SetData(data: any) {
+    this.PensumCivil = data.Redes[0].Civil;
+
+    for (var nombre in this.PensumCivil[1].AreasNombres) {
+      this.nombresArea.push(nombre);
+    }
+
+    //semestres
+    var temp = [];
+    console.log(this.PensumCivil);
+
+    for (var n1 in this.PensumCivil[0].Semestres) {
+      for (var area_id in this.PensumCivil[0].Semestres[n1].semestre.Areas) {
+        for (var n3 in this.PensumCivil[0].Semestres[n1].semestre.Areas[area_id].area) {
+
+          //pre requisitos
+          for (var n4 in this.PensumCivil[0].Semestres[n1].semestre.Areas[area_id].area[n3].pre) {
+            temp = this.PensumCivil[0].Semestres[n1].semestre.Areas[area_id].area[n3].pre;
+            this.pre.push({
+              codigo: temp[n4].codigo
+            });
+          }
+
+          //post requisitos
+          for (var n4 in this.PensumCivil[0].Semestres[n1].semestre.Areas[area_id].area[n3].post) {
+            temp = this.PensumCivil[0].Semestres[n1].semestre.Areas[area_id].area[n3].post;
+            this.post.push({
+              codigo: temp[n4].codigo
+            });
+
+          }
+          temp = this.PensumCivil[0].Semestres[n1].semestre.Areas[area_id].area;
+          console.log("temporal ",temp, n3);
+          this.cursos.push({
+            codigo: temp[n3].codigo,
+            nombre: temp[n3].nombre,
+            creditos: temp[n3].creditos,
+            pre: this.pre,
+            post: this.post,
+            tipo: temp[n3].tipo
+          });
+          console.log("this.cursos", this.cursos);
+          this.pre = [];
+          this.post = [];
+        } 
+        //agregar area       
+      }
+
+      var x = +n1 + 1;
+      this.paginas.push({
+        tituloSemestre: "Semestre " + x,
+        nombres: this.cursos
+      });
+      console.log(this.cursos);
+      this.cursos = [];
+    } 
   }
-
-  
-
 }

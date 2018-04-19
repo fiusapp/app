@@ -16,6 +16,7 @@ import { EscuelasPage } from '../pages/escuelas/escuelas';
 import { UnidadesPage } from '../pages/unidades/unidades';
 import { PreguntasPage } from '../pages/preguntas/preguntas';
 import { PensumCivilPage } from '../pages/pensum-civil/pensum-civil';
+import { PruebaPage } from '../pages/prueba/prueba';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PensumCivilPage } from '../pages/pensum-civil/pensum-civil';
     EscuelasPage,
     UnidadesPage,
     PreguntasPage,
-    PensumCivilPage
+    PensumCivilPage,
+    PruebaPage
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,8 @@ import { PensumCivilPage } from '../pages/pensum-civil/pensum-civil';
     EscuelasPage,
     UnidadesPage,
     PreguntasPage,
-    PensumCivilPage
+    PensumCivilPage,
+    PruebaPage
   ],
   providers: [
     StatusBar,
