@@ -15,7 +15,7 @@ import { ProcesosPage } from '../pages/procesos/procesos';
 import { EscuelasPage } from '../pages/escuelas/escuelas';
 import { UnidadesPage } from '../pages/unidades/unidades';
 import { PreguntasPage } from '../pages/preguntas/preguntas';
-import { PensumCivilPage } from '../pages/pensum-civil/pensum-civil';
+import { PensumPage } from '../pages/pensum/pensum';
 import { PruebaPage } from '../pages/prueba/prueba';
 
 @NgModule({
@@ -29,7 +29,7 @@ import { PruebaPage } from '../pages/prueba/prueba';
     EscuelasPage,
     UnidadesPage,
     PreguntasPage,
-    PensumCivilPage,
+    PensumPage,
     PruebaPage
   ],
   imports: [
@@ -48,7 +48,7 @@ import { PruebaPage } from '../pages/prueba/prueba';
     EscuelasPage,
     UnidadesPage,
     PreguntasPage,
-    PensumCivilPage,
+    PensumPage,
     PruebaPage
   ],
   providers: [

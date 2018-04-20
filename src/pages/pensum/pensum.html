@@ -1,0 +1,35 @@
+<!--
+  Generated template for the PensumPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{carrera.codigo}} {{carrera.nombre}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-slides pager>
+    <ion-slide *ngFor="let semestre of carrera.semestres">
+      Semestre {{semestre.numero}}
+      <ion-list>
+          <ion-item *ngFor="let area of semestre.areas">
+              {{area.nombre}}
+            <ion-list>
+              <button ion-item *ngFor="let curso of area.cursos">
+                {{curso.codigo}}
+                {{curso.nombre}}
+                {{curso.creditos}}
+                {{curso.tipo}}
+              </button>
+            </ion-list>
+            </ion-item>
+      </ion-list>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

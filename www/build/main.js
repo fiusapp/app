@@ -1,4 +1,4 @@
-webpackJsonp([10],{
+webpackJsonp([11],{
 
 /***/ 149:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -123,8 +123,8 @@ InicioPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RedesPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pensum_civil_pensum_civil__ = __webpack_require__(152);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__prueba_prueba__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__datafinder__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pensum_pensum__ = __webpack_require__(153);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -145,12 +145,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var RedesPage = (function () {
-    function RedesPage(navCtrl, navParams) {
+    function RedesPage(navCtrl, navParams, datafinder) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.datafinder = datafinder;
         this.searchQuery = '';
         this.initializeItems();
     }
+    RedesPage.prototype.ionViewDidLoad = function () {
+        var _this = this;
+        this.datafinder.getJSONData("assets/Data/data.json").then(function (data) {
+            _this.carreras = data.Carreras;
+        });
+    };
     RedesPage.prototype.initializeItems = function () {
         this.items = [
             '01 Ingenieria Civil',
@@ -168,59 +175,18 @@ var RedesPage = (function () {
             'Licenciatura en Fisica'
         ];
     };
-    RedesPage.prototype.seleccion = function (red) {
-        if (red == "01 Ingenieria Civil") {
-            this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__pensum_civil_pensum_civil__["a" /* PensumCivilPage */]);
-        }
-        else if (red == "01 Ingenieria Civil 2017") {
-            this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__prueba_prueba__["a" /* PruebaPage */]);
-        }
-        else if (red == "02 Ingenieria Quimica") {
-        }
-        else if (red == "03 Ingenieria Mecanica") {
-        }
-        else if (red == "04 Ingenieria Electrica") {
-        }
-        else if (red == "05 Ingenieria Industrial") {
-        }
-        else if (red == "06 Ingenieria Mecanica Electrica") {
-        }
-        else if (red == "07 Ingenieria Mecanica Industrial") {
-        }
-        else if (red == "09 Ingenieria en Ciencias y Sistemas") {
-        }
-        else if (red == "13 Ingenieria Electronica") {
-        }
-        else if (red == "35 Ingenieria Ambiental") {
-        }
-        else if (red == "Licenciatura en Matematica") {
-        }
-        else if (red == "Licenciatura en Fisica") {
-        }
-    };
-    RedesPage.prototype.getItems = function (ev) {
-        // Reset items back to all of the items
-        this.initializeItems();
-        // set val to the value of the searchbar
-        var val = ev.target.value;
-        // if the value is an empty string don't filter the items
-        if (val && val.trim() != '') {
-            this.items = this.items.filter(function (item) {
-                return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
-            });
-        }
-    };
-    RedesPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad RedesPage');
+    RedesPage.prototype.seleccion = function (carrera) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__pensum_pensum__["a" /* PensumPage */], { "carrera": carrera });
     };
     return RedesPage;
 }());
 RedesPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-        selector: 'page-redes',template:/*ion-inline-start:"E:\Università\2018\Seminario Clase\Tesis\Fiusapp\fiusapp\src\pages\redes\redes.html"*/'<!--\n  Generated template for the RedesPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Redes de Estudio</ion-title>\n  </ion-navbar>\n\n</ion-header>\n<ion-content padding>\n<form>\n    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n    <ion-list>\n      <ion-item *ngFor="let item of items" (click)="seleccion(item)">\n        {{item}}\n      </ion-item>\n    </ion-list>\n</form>\n</ion-content>\n\n'/*ion-inline-end:"E:\Università\2018\Seminario Clase\Tesis\Fiusapp\fiusapp\src\pages\redes\redes.html"*/,
+        selector: 'page-redes',template:/*ion-inline-start:"E:\Università\2018\Seminario Clase\Tesis\Fiusapp\fiusapp\src\pages\redes\redes.html"*/'<!--\n  Generated template for the RedesPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Redes de Estudio</ion-title>\n  </ion-navbar>\n\n</ion-header>\n<ion-content padding>\n<form>\n    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n    <ion-list>\n      <ion-item *ngFor="let carrera of carreras" (click)="seleccion(carrera)">\n        {{carrera.codigo}}\n        {{carrera.nombre}}\n      </ion-item>\n    </ion-list>\n</form>\n</ion-content>\n\n'/*ion-inline-end:"E:\Università\2018\Seminario Clase\Tesis\Fiusapp\fiusapp\src\pages\redes\redes.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_2__datafinder__["a" /* DataFinder */]])
 ], RedesPage);
 
 //# sourceMappingURL=redes.js.map
@@ -231,10 +197,15 @@ RedesPage = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PensumCivilPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataFinder; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__datafinder__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__ = __webpack_require__(216);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -247,93 +218,55 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/**
- * Generated class for the PensumCivilPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var PensumCivilPage = (function () {
-    function PensumCivilPage(navCtrl, navParams, datafinder) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.datafinder = datafinder;
-        this.PensumCivil = [];
-        this.nombresArea = [];
-        this.paginas = [];
-        this.semestres = [];
-        this.areas = [];
-        this.cursos = [];
-        this.pre = [];
-        this.post = [];
-    }
-    PensumCivilPage.prototype.ionViewDidLoad = function () {
-        var _this = this;
-        this.datafinder.getJSONData("assets/Data/data.json").then(function (data) {
-            _this.SetData(data);
-        });
-    };
-    PensumCivilPage.prototype.SetData = function (data) {
-        this.PensumCivil = data.Redes[0].Civil;
-        for (var nombre in this.PensumCivil[1].AreasNombres) {
-            this.nombresArea.push(nombre);
-        }
-        //semestres
-        var temp = [];
-        console.log(this.PensumCivil);
-        for (var n1 in this.PensumCivil[0].Semestres) {
-            for (var area_id in this.PensumCivil[0].Semestres[n1].semestre.Areas) {
-                for (var n3 in this.PensumCivil[0].Semestres[n1].semestre.Areas[area_id].area) {
-                    //pre requisitos
-                    for (var n4 in this.PensumCivil[0].Semestres[n1].semestre.Areas[area_id].area[n3].pre) {
-                        temp = this.PensumCivil[0].Semestres[n1].semestre.Areas[area_id].area[n3].pre;
-                        this.pre.push({
-                            codigo: temp[n4].codigo
-                        });
-                    }
-                    //post requisitos
-                    for (var n4 in this.PensumCivil[0].Semestres[n1].semestre.Areas[area_id].area[n3].post) {
-                        temp = this.PensumCivil[0].Semestres[n1].semestre.Areas[area_id].area[n3].post;
-                        this.post.push({
-                            codigo: temp[n4].codigo
-                        });
-                    }
-                    temp = this.PensumCivil[0].Semestres[n1].semestre.Areas[area_id].area;
-                    console.log("temporal ", temp, n3);
-                    this.cursos.push({
-                        codigo: temp[n3].codigo,
-                        nombre: temp[n3].nombre,
-                        creditos: temp[n3].creditos,
-                        pre: this.pre,
-                        post: this.post,
-                        tipo: temp[n3].tipo
-                    });
-                    console.log("this.cursos", this.cursos);
-                    this.pre = [];
-                    this.post = [];
-                }
-                //agregar area       
-            }
-            var x = +n1 + 1;
-            this.paginas.push({
-                tituloSemestre: "Semestre " + x,
-                nombres: this.cursos
-            });
-            console.log(this.cursos);
-            this.cursos = [];
-        }
-    };
-    return PensumCivilPage;
-}());
-PensumCivilPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-        selector: 'page-pensum-civil',template:/*ion-inline-start:"E:\Università\2018\Seminario Clase\Tesis\Fiusapp\fiusapp\src\pages\pensum-civil\pensum-civil.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Ingeniería Civil\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n    \n  <ion-slides pager>\n      \n    <ion-slide *ngFor="let pagina of paginas">\n        \n      <h1>{{pagina.tituloSemestre}}</h1>\n      <!---->\n      <ion-list>\n        <ion-item>\n          <ion-item-group *ngFor="let nArea of nombresArea">\n            <ion-item-divider color="light">{{nArea}}</ion-item-divider>\n            <ion-list>\n              <ion-item *ngFor="let curso of pagina.nombres">\n                {{curso.nombre}}\n              </ion-item>\n\n            </ion-list>\n            \n          </ion-item-group>\n        </ion-item>\n      </ion-list>\n    </ion-slide>\n  </ion-slides>\n</ion-content>'/*ion-inline-end:"E:\Università\2018\Seminario Clase\Tesis\Fiusapp\fiusapp\src\pages\pensum-civil\pensum-civil.html"*/,
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__datafinder__["a" /* DataFinder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__datafinder__["a" /* DataFinder */]) === "function" && _c || Object])
-], PensumCivilPage);
 
-var _a, _b, _c;
-//# sourceMappingURL=pensum-civil.js.map
+
+var DataFinder = (function () {
+    function DataFinder(http) {
+        this.http = http;
+    }
+    /*
+       Gets data with a promise which will return with the data when the task is complete
+       Uses generic type T to define schema interface to ensure returning json matches schema template.
+    */
+    DataFinder.prototype.getJSONData = function (filePath) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.get(filePath)
+                .subscribe(function (res) {
+                if (!res.ok) {
+                    reject("Failed with status: " + res.status + "\nTrying to find fil at " + filePath);
+                }
+                var jsonRes = res.json();
+                resolve(jsonRes);
+            });
+        }).catch(function (reason) { return _this.handleError(reason); });
+    };
+    /* Takes an error, logs it to the console, and throws it */
+    DataFinder.prototype.handleError = function (error) {
+        var errMsg;
+        if (error instanceof Response) {
+            var body = error.json() || '';
+            var err = JSON.stringify(body);
+            errMsg = error.status + " - " + (error.statusText || '') + " " + err;
+        }
+        else {
+            errMsg = error.message ? error.message : error.toString();
+        }
+        console.error(errMsg);
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(errMsg);
+    };
+    return DataFinder;
+}());
+DataFinder = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])()
+    /*
+    * Uses Injected HTTP service in order to find files and return them as usable data objects
+    */
+    ,
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+], DataFinder);
+
+//# sourceMappingURL=datafinder.js.map
 
 /***/ }),
 
@@ -341,7 +274,7 @@ var _a, _b, _c;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PruebaPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PensumPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -356,46 +289,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the PruebaPage page.
+ * Generated class for the PensumPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var PruebaPage = (function () {
-    function PruebaPage(navCtrl, navParams) {
+var PensumPage = (function () {
+    function PensumPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.slides = [
-            {
-                title: "Welcome to the Docs!",
-                description: "The <b>Ionic Component Documentation</b> showcases a number of useful components that are included out of the box with Ionic.",
-                image: "assets/img/ica-slidebox-img-1.png",
-            },
-            {
-                title: "What is Ionic?",
-                description: "<b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps with web technologies like HTML, CSS, and JavaScript.",
-                image: "assets/img/ica-slidebox-img-2.png",
-            },
-            {
-                title: "What is Ionic Cloud?",
-                description: "The <b>Ionic Cloud</b> is a cloud platform for managing and scaling Ionic apps with integrated services like push notifications, native builds, user auth, and live updating.",
-                image: "assets/img/ica-slidebox-img-3.png",
-            }
-        ];
+        this.carrera = this.navParams.get("carrera");
     }
-    PruebaPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad PruebaPage');
+    PensumPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad PensumPage');
     };
-    return PruebaPage;
+    return PensumPage;
 }());
-PruebaPage = __decorate([
+PensumPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-        selector: 'page-prueba',template:/*ion-inline-start:"E:\Università\2018\Seminario Clase\Tesis\Fiusapp\fiusapp\src\pages\prueba\prueba.html"*/'<!--\n  Generated template for the PruebaPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar>\n      <ion-title>Slides</ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content class="tutorial-page">\n  \n    <ion-slides pager>\n      <ion-slide *ngFor="let slide of slides">\n        <ion-toolbar>\n          <ion-buttons end>\n            <button ion-button color="primary">Skip</button>\n          </ion-buttons>\n        </ion-toolbar>\n        <img [src]="slide.image" class="slide-image"/>\n        <h2 class="slide-title" [innerHTML]="slide.title"></h2>\n        <p [innerHTML]="slide.description"></p>\n      </ion-slide>\n      <ion-slide>\n        <ion-toolbar>\n        </ion-toolbar>\n        <img src="assets/img/ica-slidebox-img-4.png" class="slide-image"/>\n        <h2 class="slide-title">Ready to Play?</h2>\n        <button ion-button large clear icon-end color="primary">\n          Continue\n          <ion-icon name="arrow-forward"></ion-icon>\n        </button>\n      </ion-slide>\n    </ion-slides>\n  </ion-content>\n'/*ion-inline-end:"E:\Università\2018\Seminario Clase\Tesis\Fiusapp\fiusapp\src\pages\prueba\prueba.html"*/,
+        selector: 'page-pensum',template:/*ion-inline-start:"E:\Università\2018\Seminario Clase\Tesis\Fiusapp\fiusapp\src\pages\pensum\pensum.html"*/'<!--\n  Generated template for the PensumPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{carrera.codigo}} {{carrera.nombre}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-slides pager>\n    <ion-slide *ngFor="let semestre of carrera.semestres">\n      Semestre {{semestre.numero}}\n      <ion-list>\n          <ion-item *ngFor="let area of semestre.areas">\n              {{area.nombre}}\n            <ion-list>\n              <button ion-item *ngFor="let curso of area.cursos">\n                {{curso.codigo}}\n                {{curso.nombre}}\n                {{curso.creditos}}\n                {{curso.tipo}}\n              </button>\n            </ion-list>\n            </ion-item>\n      </ion-list>\n    </ion-slide>\n  </ion-slides>\n</ion-content>'/*ion-inline-end:"E:\Università\2018\Seminario Clase\Tesis\Fiusapp\fiusapp\src\pages\pensum\pensum.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
-], PruebaPage);
+], PensumPage);
 
-//# sourceMappingURL=prueba.js.map
+//# sourceMappingURL=pensum.js.map
 
 /***/ }),
 
@@ -628,43 +545,47 @@ webpackEmptyAsyncContext.id = 168;
 var map = {
 	"../pages/escuelas/escuelas.module": [
 		818,
-		9
+		10
 	],
 	"../pages/inicio/inicio.module": [
 		819,
-		8
+		9
 	],
 	"../pages/login/login.module": [
 		820,
-		7
+		8
 	],
 	"../pages/pensum-civil/pensum-civil.module": [
 		821,
-		6
+		0
+	],
+	"../pages/pensum/pensum.module": [
+		822,
+		7
 	],
 	"../pages/preguntas/preguntas.module": [
-		822,
-		5
+		823,
+		6
 	],
 	"../pages/procesos/procesos.module": [
-		823,
-		4
+		824,
+		5
 	],
 	"../pages/prueba/prueba.module": [
-		824,
-		3
+		825,
+		4
 	],
 	"../pages/redes/redes.module": [
-		825,
-		2
+		826,
+		3
 	],
 	"../pages/tab-menu/tab-menu.module": [
-		826,
-		1
+		827,
+		2
 	],
 	"../pages/unidades/unidades.module": [
-		827,
-		0
+		828,
+		1
 	]
 };
 function webpackAsyncContext(req) {
@@ -683,19 +604,13 @@ module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 215:
+/***/ 484:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataFinder; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PruebaPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(216);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__ = __webpack_require__(217);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -707,56 +622,47 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
-
-
-var DataFinder = (function () {
-    function DataFinder(http) {
-        this.http = http;
+/**
+ * Generated class for the PruebaPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var PruebaPage = (function () {
+    function PruebaPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.slides = [
+            {
+                title: "Welcome to the Docs!",
+                description: "The <b>Ionic Component Documentation</b> showcases a number of useful components that are included out of the box with Ionic.",
+                image: "assets/img/ica-slidebox-img-1.png",
+            },
+            {
+                title: "What is Ionic?",
+                description: "<b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps with web technologies like HTML, CSS, and JavaScript.",
+                image: "assets/img/ica-slidebox-img-2.png",
+            },
+            {
+                title: "What is Ionic Cloud?",
+                description: "The <b>Ionic Cloud</b> is a cloud platform for managing and scaling Ionic apps with integrated services like push notifications, native builds, user auth, and live updating.",
+                image: "assets/img/ica-slidebox-img-3.png",
+            }
+        ];
     }
-    /*
-       Gets data with a promise which will return with the data when the task is complete
-       Uses generic type T to define schema interface to ensure returning json matches schema template.
-    */
-    DataFinder.prototype.getJSONData = function (filePath) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.http.get(filePath)
-                .subscribe(function (res) {
-                if (!res.ok) {
-                    reject("Failed with status: " + res.status + "\nTrying to find fil at " + filePath);
-                }
-                var jsonRes = res.json();
-                resolve(jsonRes);
-            });
-        }).catch(function (reason) { return _this.handleError(reason); });
+    PruebaPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad PruebaPage');
     };
-    /* Takes an error, logs it to the console, and throws it */
-    DataFinder.prototype.handleError = function (error) {
-        var errMsg;
-        if (error instanceof Response) {
-            var body = error.json() || '';
-            var err = JSON.stringify(body);
-            errMsg = error.status + " - " + (error.statusText || '') + " " + err;
-        }
-        else {
-            errMsg = error.message ? error.message : error.toString();
-        }
-        console.error(errMsg);
-        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(errMsg);
-    };
-    return DataFinder;
+    return PruebaPage;
 }());
-DataFinder = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])()
-    /*
-    * Uses Injected HTTP service in order to find files and return them as usable data objects
-    */
-    ,
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
-], DataFinder);
+PruebaPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+        selector: 'page-prueba',template:/*ion-inline-start:"E:\Università\2018\Seminario Clase\Tesis\Fiusapp\fiusapp\src\pages\prueba\prueba.html"*/'<!--\n  Generated template for the PruebaPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar>\n      <ion-title>Slides</ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content class="tutorial-page">\n  \n    <ion-slides pager>\n      <ion-slide *ngFor="let slide of slides">\n        <ion-toolbar>\n          <ion-buttons end>\n            <button ion-button color="primary">Skip</button>\n          </ion-buttons>\n        </ion-toolbar>\n        <img [src]="slide.image" class="slide-image"/>\n        <h2 class="slide-title" [innerHTML]="slide.title"></h2>\n        <p [innerHTML]="slide.description"></p>\n      </ion-slide>\n      <ion-slide>\n        <ion-toolbar>\n        </ion-toolbar>\n        <img src="assets/img/ica-slidebox-img-4.png" class="slide-image"/>\n        <h2 class="slide-title">Ready to Play?</h2>\n        <button ion-button large clear icon-end color="primary">\n          Continue\n          <ion-icon name="arrow-forward"></ion-icon>\n        </button>\n      </ion-slide>\n    </ion-slides>\n  </ion-content>\n'/*ion-inline-end:"E:\Università\2018\Seminario Clase\Tesis\Fiusapp\fiusapp\src\pages\prueba\prueba.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+], PruebaPage);
 
-//# sourceMappingURL=datafinder.js.map
+//# sourceMappingURL=prueba.js.map
 
 /***/ }),
 
@@ -828,9 +734,9 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(481);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(484);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__datafinder__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(480);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(483);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__datafinder__ = __webpack_require__(152);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(817);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_inicio_inicio__ = __webpack_require__(150);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_login_login__ = __webpack_require__(157);
@@ -840,8 +746,8 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_escuelas_escuelas__ = __webpack_require__(149);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_unidades_unidades__ = __webpack_require__(155);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_preguntas_preguntas__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_pensum_civil_pensum_civil__ = __webpack_require__(152);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_prueba_prueba__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_pensum_pensum__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_prueba_prueba__ = __webpack_require__(484);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -883,7 +789,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_13__pages_escuelas_escuelas__["a" /* EscuelasPage */],
             __WEBPACK_IMPORTED_MODULE_14__pages_unidades_unidades__["a" /* UnidadesPage */],
             __WEBPACK_IMPORTED_MODULE_15__pages_preguntas_preguntas__["a" /* PreguntasPage */],
-            __WEBPACK_IMPORTED_MODULE_16__pages_pensum_civil_pensum_civil__["a" /* PensumCivilPage */],
+            __WEBPACK_IMPORTED_MODULE_16__pages_pensum_pensum__["a" /* PensumPage */],
             __WEBPACK_IMPORTED_MODULE_17__pages_prueba_prueba__["a" /* PruebaPage */]
         ],
         imports: [
@@ -894,6 +800,7 @@ AppModule = __decorate([
                     { loadChildren: '../pages/inicio/inicio.module#InicioPageModule', name: 'InicioPage', segment: 'inicio', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/pensum-civil/pensum-civil.module#PensumCivilPageModule', name: 'PensumCivilPage', segment: 'pensum-civil', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/pensum/pensum.module#PensumPageModule', name: 'PensumPage', segment: 'pensum', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/preguntas/preguntas.module#PreguntasPageModule', name: 'PreguntasPage', segment: 'preguntas', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/procesos/procesos.module#ProcesosPageModule', name: 'ProcesosPage', segment: 'procesos', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/prueba/prueba.module#PruebaPageModule', name: 'PruebaPage', segment: 'prueba', priority: 'low', defaultHistory: [] },
@@ -915,7 +822,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_13__pages_escuelas_escuelas__["a" /* EscuelasPage */],
             __WEBPACK_IMPORTED_MODULE_14__pages_unidades_unidades__["a" /* UnidadesPage */],
             __WEBPACK_IMPORTED_MODULE_15__pages_preguntas_preguntas__["a" /* PreguntasPage */],
-            __WEBPACK_IMPORTED_MODULE_16__pages_pensum_civil_pensum_civil__["a" /* PensumCivilPage */],
+            __WEBPACK_IMPORTED_MODULE_16__pages_pensum_pensum__["a" /* PensumPage */],
             __WEBPACK_IMPORTED_MODULE_17__pages_prueba_prueba__["a" /* PruebaPage */]
         ],
         providers: [
@@ -938,8 +845,8 @@ AppModule = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(484);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(481);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(483);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(480);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(157);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;

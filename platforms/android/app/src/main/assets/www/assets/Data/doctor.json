@@ -1,0 +1,26 @@
+{
+    "advertisers": [
+        {
+            "name": "Udemy",
+            "id": 39197
+        }
+    ],
+    "networks": [
+        {
+            "name": "US",
+            "id": 1
+        },
+        {
+            "name": "UK",
+            "id": 3
+        },
+        {
+            "name": "CAN",
+            "id": 5
+        },
+        {
+            "name": "AUS",
+            "id": 41
+        }
+    ]
+}
