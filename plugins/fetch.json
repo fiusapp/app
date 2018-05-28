@@ -1,12 +1,4 @@
 {
-  "cordova-plugin-inappbrowser": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-inappbrowser@2.0.2"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-whitelist": {
     "source": {
       "type": "registry",
@@ -18,7 +10,7 @@
   "cordova-plugin-device": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-device@^2.0.1"
+      "id": "cordova-plugin-device@^2.0.2"
     },
     "is_top_level": true,
     "variables": {}
@@ -34,7 +26,7 @@
   "cordova-plugin-ionic-webview": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-ionic-webview@^1.1.16"
+      "id": "cordova-plugin-ionic-webview@^1.2.1"
     },
     "is_top_level": true,
     "variables": {}
@@ -42,19 +34,17 @@
   "cordova-plugin-ionic-keyboard": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-ionic-keyboard@^2.0.5"
+      "id": "cordova-plugin-ionic-keyboard@^2.1.2"
     },
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-googleplus": {
+  "cordova-plugin-inappbrowser": {
     "source": {
       "type": "registry",
-      "id": "https://github.com/EddyVerbruggen/cordova-plugin-googleplus"
+      "id": "cordova-plugin-inappbrowser@^2.0.2"
     },
     "is_top_level": true,
-    "variables": {
-      "REVERSED_CLIENT_ID": "449937519255-jnr8rt28k4kapia6ab5n7a6iiivsjj2f.apps.googleusercontent.com"
-    }
+    "variables": {}
   }
 }

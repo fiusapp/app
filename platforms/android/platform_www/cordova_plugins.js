@@ -9,12 +9,11 @@ module.exports = [
     ]
   },
   {
-    "id": "cordova-plugin-inappbrowser.inappbrowser",
-    "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
-    "pluginId": "cordova-plugin-inappbrowser",
+    "id": "cordova-plugin-splashscreen.SplashScreen",
+    "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+    "pluginId": "cordova-plugin-splashscreen",
     "clobbers": [
-      "cordova.InAppBrowser.open",
-      "window.open"
+      "navigator.splashscreen"
     ]
   },
   {
@@ -26,32 +25,24 @@ module.exports = [
     ]
   },
   {
-    "id": "cordova-plugin-splashscreen.SplashScreen",
-    "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
-    "pluginId": "cordova-plugin-splashscreen",
+    "id": "cordova-plugin-inappbrowser.inappbrowser",
+    "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+    "pluginId": "cordova-plugin-inappbrowser",
     "clobbers": [
-      "navigator.splashscreen"
-    ]
-  },
-  {
-    "id": "cordova-plugin-googleplus.GooglePlus",
-    "file": "plugins/cordova-plugin-googleplus/www/GooglePlus.js",
-    "pluginId": "cordova-plugin-googleplus",
-    "clobbers": [
-      "window.plugins.googleplus"
+      "cordova.InAppBrowser.open",
+      "window.open"
     ]
   }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
-  "cordova-plugin-device": "2.0.1",
-  "cordova-plugin-inappbrowser": "2.0.2",
-  "cordova-plugin-ionic-keyboard": "2.0.5",
-  "cordova-plugin-ionic-webview": "1.1.16",
-  "cordova-plugin-splashscreen": "5.0.2",
   "cordova-plugin-whitelist": "1.3.3",
-  "cordova-plugin-googleplus": "5.2.1"
+  "cordova-plugin-device": "2.0.2",
+  "cordova-plugin-splashscreen": "5.0.2",
+  "cordova-plugin-ionic-webview": "1.2.1",
+  "cordova-plugin-ionic-keyboard": "2.1.2",
+  "cordova-plugin-inappbrowser": "2.0.2"
 };
 // BOTTOM OF METADATA
 });
