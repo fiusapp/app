@@ -3,6 +3,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PensumCivilPage } from '../pensum-civil/pensum-civil';
 import { PruebaPage } from '../prueba/prueba';
 import { InicioPage } from '../inicio/inicio';
+import { DataFinder } from '../../../datafinder';
+import { Carrera } from '../../models/Carrera';
+import { PensumPage } from '../pensum/pensum';
+
 
 /**
  * Generated class for the RedesPage page.
@@ -20,11 +24,18 @@ export class RedesPage {
 
   searchQuery: string = '';
   items: string[];
-
+  carreras: Carrera[];
   constructor(
     public navCtrl: NavController, 
-    public navParams: NavParams) {
+    public navParams: NavParams,
+    private datafinder: DataFinder) {
       this.initializeItems();
+  }
+
+  ionViewDidLoad() {
+    this.datafinder.getJSONData("assets/Data/data.json").then(data => {
+      this.carreras = data.Carreras;
+    });
   }
 
   initializeItems() {
@@ -46,36 +57,10 @@ export class RedesPage {
     
   }
 
-  seleccion(red: string){
-    if(red=="01 Ingenieria Civil"){
-      this.navCtrl.setRoot(PensumCivilPage);
-    }else if(red == "01 Ingenieria Civil 2017"){
-      this.navCtrl.setRoot(PruebaPage);
-    }else if(red == "02 Ingenieria Quimica"){
-
-    }else if(red == "03 Ingenieria Mecanica"){
-
-    }else if(red == "04 Ingenieria Electrica"){
-
-    }else if(red == "05 Ingenieria Industrial"){
-
-    }else if(red == "06 Ingenieria Mecanica Electrica"){
-
-    }else if(red == "07 Ingenieria Mecanica Industrial"){
-
-    }else if(red == "09 Ingenieria en Ciencias y Sistemas"){
-
-    }else if(red == "13 Ingenieria Electronica"){
-
-    }else if(red == "35 Ingenieria Ambiental"){
-
-    }else if(red == "Licenciatura en Matematica"){
-
-    }else if(red == "Licenciatura en Fisica"){
-
-    }
+  seleccion(carrera: Carrera){
+    this.navCtrl.push(PensumPage,{"carrera": carrera});
   }
-  getItems(ev: any) {
+  /*getItems(ev: any) {
     // Reset items back to all of the items
     this.initializeItems();
 
@@ -89,10 +74,6 @@ export class RedesPage {
         
       })
     }
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RedesPage');
-  }
+  }*/
 
 }
