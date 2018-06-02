@@ -136,7 +136,7 @@
                     ]
                 },{
                     "numero":"2",
-                    "":""
+                    "areas":""
                 }
             ]
         },
@@ -148,27 +148,27 @@
                     "numero":"1",
                     "areas": [
                                     {
-                                        "nombre":"area1",
+                                        "nombre":"Area 1",
                                         "cursos": []
                                     },
                                     {
-                                        "nombre":"area2",
+                                        "nombre":"Area 2",
                                         "cursos": []
                                     },
                                     {
-                                        "nombre":"area3",
+                                        "nombre":"Area 3",
                                         "cursos": []
                                     },
                                     {
-                                        "nombre":"area4",
+                                        "nombre":"Area 4",
                                         "cursos": []
                                     },
                                     {
-                                        "nombre":"area5",
+                                        "nombre":"Area 5",
                                         "cursos": []
                                     },
                                     {
-                                        "nombre":"area6",
+                                        "nombre":"Area 6",
                                         "cursos": [
                                             {
                                                 "codigo": "017",
@@ -291,6 +291,22 @@
                                                 "tipo": "opcional"
                                             }
                                         ]
+                                    },
+                                    {
+                                        "nombre":"Area 7",
+                                        "cursos": []
+                                    },
+                                    {
+                                        "nombre":"Area 8",
+                                        "cursos": []
+                                    },
+                                    {
+                                        "nombre":"Area 9",
+                                        "cursos": []
+                                    },
+                                    {
+                                        "nombre":"Area 10",
+                                        "cursos": []
                                     }
                                 
                     ]
