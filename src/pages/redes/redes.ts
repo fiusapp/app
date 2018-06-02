@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DataFinder } from '../../../datafinder';
 import { Carrera } from '../../models/Carrera';
 import { PensumPage } from '../pensum/pensum';
+import {} from '../../../src/Data/data.json';
 
 @IonicPage()
 @Component({
@@ -22,7 +23,7 @@ export class RedesPage {
   }
 
   ionViewDidLoad() {
-    this.datafinder.getJSONData("../../Data/data.json").then(data => {
+    this.datafinder.getJSONData("assets/Data/data.json").then(data => {
       this.carreras = data.Carreras;
     });
   }

@@ -8,15 +8,15 @@
                     "numero":"1",
                     "areas": [
                                     {
-                                        "nombre":"area1",
+                                        "nombre":"Area 1",
                                         "cursos": []
                                     },
                                     {
-                                        "nombre":"area2",
+                                        "nombre":"Area 2",
                                         "cursos": []
                                     },
                                     {
-                                        "nombre":"area3",
+                                        "nombre":"Area 3",
                                         "cursos": []
                                     },
                                     {
@@ -122,6 +122,14 @@
                                     },
                                     {
                                         "nombre":"area8",
+                                        "cursos": []
+                                    },
+                                    {
+                                        "nombre":"area9",
+                                        "cursos": []
+                                    },
+                                    {
+                                        "nombre":"area10",
                                         "cursos": []
                                     }
                                 
