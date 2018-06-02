@@ -20,15 +20,15 @@
                                         "cursos": []
                                     },
                                     {
-                                        "nombre":"area4",
+                                        "nombre":"Area 4",
                                         "cursos": []
                                     },
                                     {
-                                        "nombre":"area5",
+                                        "nombre":"Area 5",
                                         "cursos": []
                                     },
                                     {
-                                        "nombre":"area6",
+                                        "nombre":"Area 6",
                                         "cursos": [
                                             {
                                                 "codigo": "017",
@@ -117,19 +117,19 @@
                                         ]
                                     },
                                     {
-                                        "nombre":"area7",
+                                        "nombre":"Area 7",
                                         "cursos": []
                                     },
                                     {
-                                        "nombre":"area8",
+                                        "nombre":"Area 8",
                                         "cursos": []
                                     },
                                     {
-                                        "nombre":"area9",
+                                        "nombre":"Area 9",
                                         "cursos": []
                                     },
                                     {
-                                        "nombre":"area10",
+                                        "nombre":"Area 10",
                                         "cursos": []
                                     }
                                 
