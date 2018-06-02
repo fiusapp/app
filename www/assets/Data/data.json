@@ -118,6 +118,22 @@
                                                 "tipo": "opcional"
                                             }
                                         ]
+                                    },
+                                    {
+                                        "nombre":"area7",
+                                        "cursos": []
+                                    },
+                                    {
+                                        "nombre":"area8",
+                                        "cursos": []
+                                    },
+                                    {
+                                        "nombre":"area9",
+                                        "cursos": []
+                                    },
+                                    {
+                                        "nombre":"area10",
+                                        "cursos": []
                                     }
                                 
                     ]
