@@ -33,7 +33,7 @@ export class RedesPage {
   }
 
   ionViewDidLoad() {
-    this.datafinder.getJSONData("assets/Data/data.json").then(data => {
+    this.datafinder.getJSONData("/Data/data.json").then(data => {
       this.carreras = data.Carreras;
     });
   }
