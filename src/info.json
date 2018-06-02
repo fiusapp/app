@@ -7,6 +7,9 @@
                 {
                     "numero":"1",
                     "areas": [
+                        
+                            
+                                
                                     {
                                         "nombre":"area1",
                                         "cursos": []
@@ -139,6 +142,9 @@
                 {
                     "numero":"1",
                     "areas": [
+                        
+                            
+                                
                                     {
                                         "nombre":"area1",
                                         "cursos": []

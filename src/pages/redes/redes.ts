@@ -1,19 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { PensumCivilPage } from '../pensum-civil/pensum-civil';
-import { PruebaPage } from '../prueba/prueba';
-import { InicioPage } from '../inicio/inicio';
 import { DataFinder } from '../../../datafinder';
 import { Carrera } from '../../models/Carrera';
 import { PensumPage } from '../pensum/pensum';
-
-
-/**
- * Generated class for the RedesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -33,7 +22,7 @@ export class RedesPage {
   }
 
   ionViewDidLoad() {
-    this.datafinder.getJSONData("/Data/data.json").then(data => {
+    this.datafinder.getJSONData("../../Data/data.json").then(data => {
       this.carreras = data.Carreras;
     });
   }

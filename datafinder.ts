@@ -18,6 +18,7 @@ export class DataFinder {
      Uses generic type T to define schema interface to ensure returning json matches schema template.
   */
   public getJSONData(filePath: string) : Promise<any> {
+    console.log(filePath);
     return new Promise((resolve, reject) => {
       this.http.get(filePath)
         .subscribe(

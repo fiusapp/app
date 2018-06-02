@@ -30,24 +30,24 @@ export class InicioPage {
 
   gotoRedes(){
     
-    this.navCtrl.setRoot(RedesPage);
+    this.navCtrl.push(RedesPage);
   }
 
   gotoProcesos(){
     
-    this.navCtrl.setRoot(ProcesosPage);
+    this.navCtrl.push(ProcesosPage);
   }
   gotoEscuelas(){
     
-    this.navCtrl.setRoot(EscuelasPage);
+    this.navCtrl.push(EscuelasPage);
   }
   gotoUnidades(){
     
-    this.navCtrl.setRoot(UnidadesPage);
+    this.navCtrl.push(UnidadesPage);
   }
   gotoPreguntas(){
     
-    this.navCtrl.setRoot(PreguntasPage);
+    this.navCtrl.push(PreguntasPage);
   }
 
   ionViewDidLoad() {

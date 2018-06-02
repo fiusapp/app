@@ -85,19 +85,19 @@ var InicioPage = (function () {
         this.navParams = navParams;
     }
     InicioPage.prototype.gotoRedes = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__redes_redes__["a" /* RedesPage */]);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__redes_redes__["a" /* RedesPage */]);
     };
     InicioPage.prototype.gotoProcesos = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__procesos_procesos__["a" /* ProcesosPage */]);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__procesos_procesos__["a" /* ProcesosPage */]);
     };
     InicioPage.prototype.gotoEscuelas = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__escuelas_escuelas__["a" /* EscuelasPage */]);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__escuelas_escuelas__["a" /* EscuelasPage */]);
     };
     InicioPage.prototype.gotoUnidades = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__unidades_unidades__["a" /* UnidadesPage */]);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__unidades_unidades__["a" /* UnidadesPage */]);
     };
     InicioPage.prototype.gotoPreguntas = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__preguntas_preguntas__["a" /* PreguntasPage */]);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__preguntas_preguntas__["a" /* PreguntasPage */]);
     };
     InicioPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad InicioPage');
@@ -108,10 +108,10 @@ InicioPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
         selector: 'page-inicio',template:/*ion-inline-start:"/home/melissa/Documentos/Fiusapp/app/src/pages/inicio/inicio.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>Inicio</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <form>\n<ion-card>\n  <ion-card-header>\n    ¿Qué necesitas?\n  </ion-card-header>\n\n  <ion-list>\n    <button (click)="gotoRedes()" ion-item>\n      <ion-icon name="school" item-start></ion-icon>\n      Redes de Estudio\n    </button>\n\n    <button (click)="gotoProcesos()"ion-item>\n      <ion-icon name="medical" item-start></ion-icon>\n      Procesos\n    </button>\n\n    <button (click)="gotoEscuelas()"ion-item>\n      <ion-icon name="cafe" item-start></ion-icon>\n      Escuelas\n    </button>\n\n    <button (click)="gotoUnidades()"ion-item>\n      <ion-icon name="paw" item-start></ion-icon>\n      Unidades Académicas\n    </button>\n\n\n    <button (click)="gotoPreguntas()" ion-item>\n      <ion-icon name="planet" item-start></ion-icon>\n      Preguntas Frecuentes\n    </button>\n\n  </ion-list>\n</ion-card>\n</form> \n</ion-content>\n'/*ion-inline-end:"/home/melissa/Documentos/Fiusapp/app/src/pages/inicio/inicio.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object])
 ], InicioPage);
 
+var _a, _b;
 //# sourceMappingURL=inicio.js.map
 
 /***/ }),
@@ -138,12 +138,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/**
- * Generated class for the RedesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 var RedesPage = (function () {
     function RedesPage(navCtrl, navParams, datafinder) {
         this.navCtrl = navCtrl;
@@ -154,7 +148,7 @@ var RedesPage = (function () {
     }
     RedesPage.prototype.ionViewDidLoad = function () {
         var _this = this;
-        this.datafinder.getJSONData("/Data/data.json").then(function (data) {
+        this.datafinder.getJSONData("../../Data/data.json").then(function (data) {
             _this.carreras = data.Carreras;
         });
     };
@@ -182,13 +176,12 @@ var RedesPage = (function () {
 }());
 RedesPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-        selector: 'page-redes',template:/*ion-inline-start:"/home/melissa/Documentos/Fiusapp/app/src/pages/redes/redes.html"*/'<!--\n  Generated template for the RedesPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Redes de Estudio</ion-title>\n  </ion-navbar>\n\n</ion-header>\n<ion-content padding>\n<form>\n    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n    <ion-list>\n      <ion-item *ngFor="let carrera of carreras" (click)="seleccion(carrera)">\n        {{carrera.codigo}}\n        {{carrera.nombre}}\n      </ion-item>\n    </ion-list>\n</form>\n</ion-content>\n\n'/*ion-inline-end:"/home/melissa/Documentos/Fiusapp/app/src/pages/redes/redes.html"*/,
+        selector: 'page-redes',template:/*ion-inline-start:"/home/melissa/Documentos/Fiusapp/app/src/pages/redes/redes.html"*/'\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Redes de Estudio</ion-title>\n  </ion-navbar>\n\n</ion-header>\n<ion-content padding>\n<form>\n    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n    <ion-list>\n      <ion-item *ngFor="let carrera of carreras" (click)="seleccion(carrera)">\n        {{carrera.codigo}}\n        {{carrera.nombre}}\n      </ion-item>\n    </ion-list>\n</form>\n</ion-content>\n\n'/*ion-inline-end:"/home/melissa/Documentos/Fiusapp/app/src/pages/redes/redes.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2__datafinder__["a" /* DataFinder */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__datafinder__["a" /* DataFinder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__datafinder__["a" /* DataFinder */]) === "function" && _c || Object])
 ], RedesPage);
 
+var _a, _b, _c;
 //# sourceMappingURL=redes.js.map
 
 /***/ }),
