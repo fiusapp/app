@@ -33,7 +33,7 @@ export class PensumCivilPage {
 
 
   ionViewDidLoad() {
-    this.datafinder.getJSONData("assets/Data/data.json").then(data => {
+    this.datafinder.getJSONData("../Data/data.json").then(data => {
       this.SetData(data);
     });
   }

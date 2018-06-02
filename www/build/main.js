@@ -154,7 +154,7 @@ var RedesPage = (function () {
     }
     RedesPage.prototype.ionViewDidLoad = function () {
         var _this = this;
-        this.datafinder.getJSONData("assets/Data/data.json").then(function (data) {
+        this.datafinder.getJSONData("/Data/data.json").then(function (data) {
             _this.carreras = data.Carreras;
         });
     };
