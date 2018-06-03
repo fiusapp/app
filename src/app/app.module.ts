@@ -9,28 +9,24 @@ import { DataFinder } from '../../datafinder';
 import { MyApp } from './app.component';
 import { InicioPage } from '../pages/inicio/inicio';
 import { LoginPage } from '../pages/login/login';
-import { TabMenuPage } from '../pages/tab-menu/tab-menu';
 import { RedesPage } from '../pages/redes/redes';
 import { ProcesosPage } from '../pages/procesos/procesos';
 import { EscuelasPage } from '../pages/escuelas/escuelas';
 import { UnidadesPage } from '../pages/unidades/unidades';
 import { PreguntasPage } from '../pages/preguntas/preguntas';
 import { PensumPage } from '../pages/pensum/pensum';
-import { PruebaPage } from '../pages/prueba/prueba';
 
 @NgModule({
   declarations: [
     MyApp,
     LoginPage,
     InicioPage,
-    TabMenuPage,
     RedesPage,
     ProcesosPage,
     EscuelasPage,
     UnidadesPage,
     PreguntasPage,
-    PensumPage,
-    PruebaPage
+    PensumPage
   ],
   imports: [
     BrowserModule,
@@ -42,14 +38,12 @@ import { PruebaPage } from '../pages/prueba/prueba';
     MyApp,
     LoginPage,
     InicioPage,
-    TabMenuPage,
     RedesPage,
     ProcesosPage,
     EscuelasPage,
     UnidadesPage,
     PreguntasPage,
-    PensumPage,
-    PruebaPage
+    PensumPage
   ],
   providers: [
     StatusBar,
