@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { LoadingController } from 'ionic-angular';
+
 import { RedesPage } from '../redes/redes';
 import { ProcesosPage } from '../procesos/procesos';
 import { EscuelasPage } from '../escuelas/escuelas';
@@ -22,6 +24,7 @@ export class InicioPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
+    public loadingCtrl: LoadingController,
     public googleplus: GooglePlus
   ) {
 }
@@ -49,10 +52,13 @@ export class InicioPage {
   }
 
   logout(){
-
+    let loader = this.loadingCtrl.create({
+      content: "Cerrando Sesión...",
+      duration: 1000
+    });
+    loader.present();
     this.googleplus.logout().then(() => {
       this.navCtrl.setRoot(LoginPage);  
-      console.log("logged out");
     });
 
   }

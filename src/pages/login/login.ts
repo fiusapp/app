@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 
 import { GooglePlus } from '@ionic-native/google-plus';
-import { AngularFireModule } from 'angularfire2';
 import Firebase from 'firebase';
 
 import { InicioPage } from '../inicio/inicio';
@@ -32,6 +31,7 @@ export class LoginPage {
         console.log(res);
         Firebase.auth().signInWithCredential(Firebase.auth.GoogleAuthProvider.credential(res.idToken)
       ).then(suc =>{
+        
         this.navCtrl.setRoot(InicioPage);
         console.log("éxito");
       }).catch(nosuc =>{
