@@ -2,7 +2,10 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 
-import { GooglePlus } from 'ionic-native';
+import { GooglePlus } from '@ionic-native/google-plus';
+import { AngularFireModule } from 'angularfire2';
+import Firebase from 'firebase';
+
 import { InicioPage } from '../inicio/inicio';
 
 
@@ -16,37 +19,25 @@ export class LoginPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public loadingCtrl: LoadingController
+    public loadingCtrl: LoadingController,
+    public googleplus: GooglePlus
   ) {
 }
 
   login(){
-    
-    GooglePlus.login({
-      'webClientId': '449937519255-9hb7bikfdpjnk369jkmi91kpl6tjf6ra.apps.googleusercontent.com'
-    }).then((res) => {
+    this.googleplus.login({
+      'webClientId': '207784854226-2onf480r4ja1uu1lakv7rgkepi9tc9nr.apps.googleusercontent.com',
+      'offline':true
+    }).then(res =>{
         console.log(res);
+        Firebase.auth().signInWithCredential(Firebase.auth.GoogleAuthProvider.credential(res.idToken)
+      ).then(suc =>{
         this.navCtrl.setRoot(InicioPage);
         console.log("éxito");
-    }, (err) => {
-        /*console.log(err);
-        let loader = this.loadingCtrl.create({
-          content: "Please wait...",
-          duration: 2000
-        });
-        loader.present();*/
-        console.log("fallido");
-        this.navCtrl.setRoot(InicioPage);
-    });
-
-  }
-
-  logout(){
-
-    GooglePlus.logout().then(() => {
-        console.log("logged out");
-    });
-
+      }).catch(nosuc =>{
+        alert("INICIO FALLIDO");
+      })
+    })
   }
 
   ionViewDidLoad() {

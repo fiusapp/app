@@ -5,7 +5,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
   <form>
     <ion-list>
       <ion-item text-center>
@@ -14,13 +14,9 @@
     </ion-list>
     
   </form>
-  <div text-center>
-      <button ion-button full (click)="login()">Login con Google</button>
-    <a ion-button block clear (click)="goToSignup()">
-      Nueva cuenta
-    </a>
-    <a ion-button block clear (click)="goToResetPassword()">
-      Olvide password
-    </a>
-  </div>
+
+  <button ion-button icon-left (click) ="login()" block outline>
+    <ion-icon name="logo-googleplus"></ion-icon>
+    INICIAR CON GOOGLE
+  </button>
 </ion-content>

@@ -13,23 +13,29 @@ import {} from '../../../src/Data/data.json';
 export class RedesPage {
 
   searchQuery: string = '';
-  items: string[];
+  items=[];
+  temp:string[];
   carreras: Carrera[];
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     private datafinder: DataFinder) {
-      this.initializeItems();
+      
   }
 
   ionViewDidLoad() {
     this.datafinder.getJSONData("assets/Data/data.json").then(data => {
       this.carreras = data.Carreras;
+      this.initializeItems(this.carreras);
     });
   }
 
-  initializeItems() {
-    this.items = [
+  initializeItems(carreras:any) {
+    
+    for (let nombre of carreras){
+      this.items.push(nombre.nombre);
+    }
+    this.temp=[
       '01 Ingenieria Civil',
       '01 Ingenieria Civil 2017',
       '02 Ingenieria Quimica',
@@ -44,17 +50,12 @@ export class RedesPage {
       'Licenciatura en Matematica',
       'Licenciatura en Fisica'
     ];
-    
   }
 
   seleccion(carrera: Carrera){
     this.navCtrl.push(PensumPage,{"carrera": carrera});
   }
-  /*getItems(ev: any) {
-    // Reset items back to all of the items
-    this.initializeItems();
-
-    // set val to the value of the searchbar
+  getItems(ev: any) {
     let val = ev.target.value;
 
     // if the value is an empty string don't filter the items
@@ -64,6 +65,6 @@ export class RedesPage {
         
       })
     }
-  }*/
+  }
 
 }
