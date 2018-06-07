@@ -16,13 +16,17 @@ import { Carrera } from '../../models/Carrera';
 })
 export class PensumPage {
   carrera:Carrera;
-  
+  isenabled:boolean=true;
+  temp:string;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.carrera = this.navParams.get("carrera");
+    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PensumPage');
+
+    console.log(this.carrera.semestres[0].areas[5].cursos[0].pre.length==0);
   }
 
 }

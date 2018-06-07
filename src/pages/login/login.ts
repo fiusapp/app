@@ -23,7 +23,11 @@ export class LoginPage {
   ) {
 }
 
-  login(){
+login(){
+  this.navCtrl.setRoot(InicioPage);
+}
+
+  /*login(){
     this.googleplus.login({
       'webClientId': '207784854226-2onf480r4ja1uu1lakv7rgkepi9tc9nr.apps.googleusercontent.com',
       'offline':true
@@ -31,14 +35,12 @@ export class LoginPage {
         console.log(res);
         Firebase.auth().signInWithCredential(Firebase.auth.GoogleAuthProvider.credential(res.idToken)
       ).then(suc =>{
-        
         this.navCtrl.setRoot(InicioPage);
-        console.log("éxito");
       }).catch(nosuc =>{
         alert("INICIO FALLIDO");
       })
     })
-  }
+  }*/
 
   ionViewDidLoad() {
     console.log('estas en LoginPage');

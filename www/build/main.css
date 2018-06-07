@@ -25678,6 +25678,54 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+.grid-basic-page ion-col div {
+  background-color: #f0f5ff;
+  border: 1px solid #e6e9ee;
+  border-radius: 15px;
+  padding: 12px;
+  text-align: center;
+}
+
 page-pensum ion-slides {
   height: auto;
+}
+
+.body {
+  background-image: url("../../assets/imgs/escudo.jpg");
+}
+
+.grid-basic-page {
+  padding: 0px;
+}
+
+.grid-basic-page ion-col div {
+  border: 1px solid #457fe4;
+  border-radius: 15px;
+  padding: 7px;
+  text-align: center;
+}
+
+.nav {
+  padding: 1px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.imagen {
+  background-image: url("../../assets/imgs/escudo.jpg");
+}
+
+.opcional {
+  border: 2px solid #103677;
+  border-style: dashed;
+}
+
+.obligatorio {
+  border-color: #5e93ee;
+  border-style: inset;
+}
+
+.imagen {
+  background-image: url("../../assets/imgs/escudo.jpg");
 }

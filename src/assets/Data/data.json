@@ -46,7 +46,17 @@
                                                 "codigo": "101",
                                                 "nombre": "Matemática Básica 1",
                                                 "creditos": "7",
-                                                "pre": [],
+                                                "pre": [
+                                                    {
+                                                        "codigo": "103"
+                                                    },
+                                                    {
+                                                        "codigo": "147"
+                                                    },
+                                                    {
+                                                        "codigo": "352"
+                                                    }
+                                                ],
                                                 "post": [
                                                     {
                                                         "codigo": "103"
@@ -136,7 +146,134 @@
                     ]
                 },{
                     "numero":"2",
-                    "areas":""
+                    "areas": [
+                                    {
+                                        "nombre":"Area 1",
+                                        "cursos": []
+                                    },
+                                    {
+                                        "nombre":"Area 2",
+                                        "cursos": []
+                                    },
+                                    {
+                                        "nombre":"Area 3",
+                                        "cursos": []
+                                    },
+                                    {
+                                        "nombre":"Area 4",
+                                        "cursos": []
+                                    },
+                                    {
+                                        "nombre":"Area 5",
+                                        "cursos": []
+                                    },
+                                    {
+                                        "nombre":"Area 6",
+                                        "cursos": [
+                                            {
+                                                "codigo": "017",
+                                                "nombre": "Social Humanistica 1",
+                                                "creditos": "4",
+                                                "pre": [],
+                                                "post": [
+                                                    {
+                                                        "codigo": "019"
+                                                    }
+                                                ],
+                                                "tipo": "obligatorio"
+                                            },
+                                            {
+                                                "codigo": "101",
+                                                "nombre": "Matemática Básica 1",
+                                                "creditos": "7",
+                                                "pre": [],
+                                                "post": [
+                                                    {
+                                                        "codigo": "103"
+                                                    },
+                                                    {
+                                                        "codigo": "147"
+                                                    },
+                                                    {
+                                                        "codigo": "352"
+                                                    }
+                                                ],
+                                                "tipo": "obligatorio"
+                                            },
+                                            {
+                                                "codigo": "348",
+                                                "nombre": "Química General 1",
+                                                "creditos": "3",
+                                                "pre": [],
+                                                "post": [
+                                                    {
+                                                        "codigo": "352"
+                                                    },
+                                                    {
+                                                        "codigo": "450"
+                                                    },
+                                                    {
+                                                        "codigo": "368"
+                                                    }
+                                                ],
+                                                "tipo": "obligatorio"
+                                            },
+                                            {
+                                                "codigo": "039",
+                                                "nombre": "Deportes 1",
+                                                "creditos": "1",
+                                                "pre": [],
+                                                "post": [
+                                                    {
+                                                        "codigo": "040"
+                                                    }
+                                                ],
+                                                "tipo": "opcional"
+                                            },
+                                            {
+                                                "codigo": "069",
+                                                "nombre": "Técnica Complementaria 1",
+                                                "creditos": "3",
+                                                "pre": [],
+                                                "post": [
+                                                    {
+                                                        "codigo": "071"
+                                                    }
+                                                ],
+                                                "tipo": "obligatorio"
+                                            },
+                                            {
+                                                "codigo": "0006",
+                                                "nombre": "Idioma Técnico 1",
+                                                "creditos": "2",
+                                                "pre": [],
+                                                "post": [
+                                                    {
+                                                        "codigo": "0008"
+                                                    }
+                                                ],
+                                                "tipo": "opcional"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "nombre":"Area 7",
+                                        "cursos": []
+                                    },
+                                    {
+                                        "nombre":"Area 8",
+                                        "cursos": []
+                                    },
+                                    {
+                                        "nombre":"Area 9",
+                                        "cursos": []
+                                    },
+                                    {
+                                        "nombre":"Area 10",
+                                        "cursos": []
+                                    }
+                                
+                    ]
                 }
             ]
         },
