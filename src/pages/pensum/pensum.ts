@@ -1,13 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Carrera } from '../../models/Carrera';
 
-/**
- * Generated class for the PensumPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { Carrera } from '../../models/Carrera';
 
 @IonicPage()
 @Component({
@@ -15,18 +9,49 @@ import { Carrera } from '../../models/Carrera';
   templateUrl: 'pensum.html',
 })
 export class PensumPage {
-  carrera:Carrera;
-  isenabled:boolean=true;
-  temp:string;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  carrera: Carrera;
+  isenabled: boolean = false;
+  temp: string;
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public informacion: AlertController) {
     this.carrera = this.navParams.get("carrera");
-    
+
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PensumPage');
+  SeleccionCurso(curso: string, codigo: string) {
+    alert("S:" + curso + " " + codigo);
+  }
 
-    console.log(this.carrera.semestres[0].areas[5].cursos[0].pre.length==0);
+
+  presentPopover(nombre:string, codigo:string, creditos:string) {
+    let alert = this.informacion.create({
+      title: nombre,
+      message: "Codigo: "+codigo+
+      '<br>Total de Créditos con '+nombre+' ganado:'+creditos+
+      '<br>Pre-Requisitos:\n'+
+      '<br>Post-Requisitos:\n',
+      buttons: [
+        
+        {
+          text: 'Aceptar',
+          handler: () => {
+
+
+
+
+          }
+        }
+      ]
+    });
+    alert.present();
+
+  }
+
+
+  ionViewDidLoad() {
+
   }
 
 }

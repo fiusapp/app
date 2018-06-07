@@ -5,7 +5,7 @@
 </ion-header>
 
 
-<ion-content padding class="body">
+<ion-content padding>
   <ion-slides pager>
     <ion-slide *ngFor="let semestre of carrera.semestres">
       <ion-list>
@@ -15,7 +15,7 @@
           {{area.nombre}}
           <ng-container *ngFor="let curso of area.cursos">
             <ion-list *ngIf="curso.pre.length==0">
-              <button [disabled]=false ion-item class="grid-basic-page">
+              <button (click)="SeleccionCurso(curso.nombre,curso.codigo)" [disabled]=false ion-item class="grid-basic-page">
                 <ng-container *ngIf="curso.tipo=='obligatorio'">
                   <ion-row class="obligatorio">
                     <ion-col>
@@ -37,8 +37,11 @@
               </button>
             </ion-list>
             <ion-list *ngIf="curso.pre.length!=0">
-              <button class="boton" [disabled]=true ion-item class="grid-basic-page">
-                  <ng-container *ngIf="curso.tipo=='obligatorio'">
+              <ion-row>
+
+                <ion-col>
+                  <button (click)="SeleccionCurso(curso.nombre,curso.codigo)" [disabled]="!isenabled" ion-item class="grid-basic-page">
+                    <ng-container *ngIf="curso.tipo=='obligatorio'">
                       <ion-row class="obligatorio">
                         <ion-col>
                           <div>Código: {{curso.codigo}}</div>
@@ -56,7 +59,16 @@
                         </ion-col>
                       </ion-row>
                     </ng-container>
-              </button>
+                  </button>
+                </ion-col>
+                
+                  <ion-buttons>
+                    <button class="ion-button" outline 
+                    (click)="presentPopover(curso.nombre,curso.codigo,curso.creditos)">
+                      <ion-icon class="info" name="more"></ion-icon>
+                    </button>
+                  </ion-buttons>
+              </ion-row>
             </ion-list>
           </ng-container>
         </ion-item>

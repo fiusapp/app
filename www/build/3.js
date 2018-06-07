@@ -29,7 +29,7 @@ PreguntasPageModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_2__preguntas__["a" /* PreguntasPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__preguntas__["a" /* PreguntasPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__preguntas__["a" /* PreguntasPage */]),
         ],
     })
 ], PreguntasPageModule);
