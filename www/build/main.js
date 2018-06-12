@@ -159,6 +159,7 @@ var RedesPage = (function () {
         this.datafinder = datafinder;
         this.searchQuery = '';
         this.items = [];
+        this.colorf = '#5e93ee';
     }
     RedesPage.prototype.ionViewDidLoad = function () {
         var _this = this;
@@ -204,7 +205,7 @@ var RedesPage = (function () {
 }());
 RedesPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-        selector: 'page-redes',template:/*ion-inline-start:"/home/melissa/Documentos/Fiusapp/app/src/pages/redes/redes.html"*/'\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Redes de Estudio</ion-title>\n  </ion-navbar>\n\n</ion-header>\n<ion-content padding>\n<form>\n    <ion-img class="imagen">  </ion-img>\n    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n    <ion-list>\n      <ion-item *ngFor="let carrera of carreras" (click)="seleccion(carrera)">\n        {{carrera.codigo}}\n        {{carrera.nombre}}\n      </ion-item>\n    </ion-list>\n\n</form>\n</ion-content>\n\n'/*ion-inline-end:"/home/melissa/Documentos/Fiusapp/app/src/pages/redes/redes.html"*/,
+        selector: 'page-redes',template:/*ion-inline-start:"/home/melissa/Documentos/Fiusapp/app/src/pages/redes/redes.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Redes de Estudio</ion-title>\n  </ion-navbar>\n\n</ion-header>\n<ion-content padding>\n  <form>\n\n    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n    <ion-list>\n      <ng-container *ngFor="let carrera of carreras">\n        <ion-item [style.background-color]="carrera.colorfuerte" (click)="seleccion(carrera)">\n          {{carrera.codigo}} {{carrera.nombre}}\n        </ion-item>\n      </ng-container>\n    </ion-list>\n\n  </form>\n</ion-content>'/*ion-inline-end:"/home/melissa/Documentos/Fiusapp/app/src/pages/redes/redes.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
@@ -244,20 +245,26 @@ var PensumPage = (function () {
     PensumPage.prototype.SeleccionCurso = function (curso, codigo) {
         alert("S:" + curso + " " + codigo);
     };
-    PensumPage.prototype.presentPopover = function (nombre, codigo, creditos) {
+    PensumPage.prototype.presentPopover = function (nombre, descripcion, codigo, creditos, colorfuerte, colorsuave) {
         var alert = this.informacion.create({
             title: nombre,
-            message: "Codigo: " + codigo +
-                '<br>Total de Créditos con ' + nombre + ' ganado:' + creditos +
-                '<br>Pre-Requisitos:\n' +
-                '<br>Post-Requisitos:\n',
+            message: 'Codigo: ' + codigo +
+                '<br>' +
+                '<br>Descripción: ' + descripcion +
+                '<br>' +
+                '<br>Total de Créditos con ' + nombre + ' ganado :' + creditos +
+                '<br>' +
+                '<br>Cursos a ganar antes (Pre-Requisitos):' +
+                '<br>' +
+                '<br>Cursos que habilita ' + nombre + ' (Post-Requisitos):',
             buttons: [
                 {
                     text: 'Aceptar',
                     handler: function () {
                     }
                 }
-            ]
+            ],
+            cssClass: 'custom-alert-danger'
         });
         alert.present();
     };
@@ -267,7 +274,7 @@ var PensumPage = (function () {
 }());
 PensumPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-        selector: 'page-pensum',template:/*ion-inline-start:"/home/melissa/Documentos/Fiusapp/app/src/pages/pensum/pensum.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Redes de Estudio</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <ion-slides pager>\n    <ion-slide *ngFor="let semestre of carrera.semestres">\n      <ion-list>\n        <ion-item text-center>{{carrera.codigo}} {{carrera.nombre}} - Semestre {{semestre.numero}}\n        </ion-item>\n        <ion-item *ngFor="let area of semestre.areas">\n          {{area.nombre}}\n          <ng-container *ngFor="let curso of area.cursos">\n            <ion-list *ngIf="curso.pre.length==0">\n              <button (click)="SeleccionCurso(curso.nombre,curso.codigo)" [disabled]=false ion-item class="grid-basic-page">\n                <ng-container *ngIf="curso.tipo==\'obligatorio\'">\n                  <ion-row class="obligatorio">\n                    <ion-col>\n                      <div>Código: {{curso.codigo}}</div>\n                      <div>{{curso.nombre}}</div>\n                      <div>Créditos: {{curso.creditos}}</div>\n                    </ion-col>\n                  </ion-row>\n                </ng-container>\n                <ng-container *ngIf="curso.tipo==\'opcional\'">\n                  <ion-row class="opcional">\n                    <ion-col>\n                      <div>Código: {{curso.codigo}}</div>\n                      <div>{{curso.nombre}}</div>\n                      <div>Créditos: {{curso.creditos}}</div>\n                    </ion-col>\n                  </ion-row>\n                </ng-container>\n              </button>\n            </ion-list>\n            <ion-list *ngIf="curso.pre.length!=0">\n              <ion-row>\n\n                <ion-col>\n                  <button (click)="SeleccionCurso(curso.nombre,curso.codigo)" [disabled]="!isenabled" ion-item class="grid-basic-page">\n                    <ng-container *ngIf="curso.tipo==\'obligatorio\'">\n                      <ion-row class="obligatorio">\n                        <ion-col>\n                          <div>Código: {{curso.codigo}}</div>\n                          <div>{{curso.nombre}}</div>\n                          <div>Créditos: {{curso.creditos}}</div>\n                        </ion-col>\n                      </ion-row>\n                    </ng-container>\n                    <ng-container *ngIf="curso.tipo==\'opcional\'">\n                      <ion-row class="opcional">\n                        <ion-col>\n                          <div>Código: {{curso.codigo}}</div>\n                          <div>{{curso.nombre}}</div>\n                          <div>Créditos: {{curso.creditos}}</div>\n                        </ion-col>\n                      </ion-row>\n                    </ng-container>\n                  </button>\n                </ion-col>\n                \n                  <ion-buttons>\n                    <button class="ion-button" outline \n                    (click)="presentPopover(curso.nombre,curso.codigo,curso.creditos)">\n                      <ion-icon class="info" name="more"></ion-icon>\n                    </button>\n                  </ion-buttons>\n              </ion-row>\n            </ion-list>\n          </ng-container>\n        </ion-item>\n      </ion-list>\n    </ion-slide>\n  </ion-slides>\n</ion-content>'/*ion-inline-end:"/home/melissa/Documentos/Fiusapp/app/src/pages/pensum/pensum.html"*/,
+        selector: 'page-pensum',template:/*ion-inline-start:"/home/melissa/Documentos/Fiusapp/app/src/pages/pensum/pensum.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Redes de Estudio</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <ion-slides pager>\n    <ion-slide *ngFor="let semestre of carrera.semestres">\n      <ion-list>\n        <ion-item text-center>{{carrera.codigo}} {{carrera.nombre}} - Semestre {{semestre.numero}}\n        </ion-item>\n        <ion-item *ngFor="let area of semestre.areas">\n          {{area.nombre}}\n          <ng-container *ngFor="let curso of area.cursos">\n            <ion-list *ngIf="curso.pre.length==0">\n              <button (click)="presentPopover(curso.nombre,curso.descripcion,curso.codigo,curso.creditos,carrera.colorfuerte,carrera.colorsuave)" [disabled]="isenabled" ion-item class="grid-basic-page">\n                <ng-container *ngIf="curso.tipo==\'obligatorio\'">\n                  <ion-row [style.background-color]="carrera.colorfuerte">\n                    <ion-col>\n                      <div [style.background-color]="carrera.colorsuave">Código: {{curso.codigo}}</div>\n                      <div style="font-weight: bold;" [style.background-color]="carrera.colorfuerte">{{curso.nombre}}</div>\n                      <div [style.background-color]="carrera.colorsuave">Créditos: {{curso.creditos}}</div>\n                    </ion-col>\n                  </ion-row>\n                </ng-container>\n                <ng-container *ngIf="curso.tipo==\'opcional\'">\n                  <ion-row [style.background-color]="carrera.colorsuave" class="opcional">\n                    <ion-col>\n                      <div [style.background-color]="carrera.colorsuave">Código: {{curso.codigo}}</div>\n                      <div style="font-weight: bold;" [style.background-color]="carrera.colorfuerte">{{curso.nombre}}</div>\n                      <div [style.background-color]="carrera.colorsuave">Créditos: {{curso.creditos}}</div>\n                    </ion-col>\n                  </ion-row>\n                </ng-container>\n              </button>\n            </ion-list>\n            <ion-list *ngIf="curso.pre.length!=0">\n              <ion-row>\n\n                <ion-col>\n                  <button (click)="presentPopover(curso.nombre,curso.descripcion,curso.codigo,curso.creditos,carrera.colorfuerte,carrera.colorsuave)" [disabled]="!isenabled" ion-item class="grid-basic-page">\n                    <ng-container *ngIf="curso.tipo==\'obligatorio\'">\n                      <ion-row [style.background-color]="carrera.colorfuerte">\n                        <ion-col>\n                          <div [style.background-color]="carrera.colorsuave">Código: {{curso.codigo}}</div>\n                          <div style="font-weight: bold;" [style.background-color]="carrera.colorfuerte">{{curso.nombre}}</div>\n                          <div [style.background-color]="carrera.colorsuave">Créditos: {{curso.creditos}}</div>\n                        </ion-col>\n                      </ion-row>\n                    </ng-container>\n                    <ng-container *ngIf="curso.tipo==\'opcional\'">\n                      <ion-row [style.background-color]="carrera.colorsuave" class="opcional">\n                        <ion-col>\n                          <div [style.background-color]="carrera.colorsuave">Código: {{curso.codigo}}</div>\n                          <div style="font-weight: bold;" [style.background-color]="carrera.colorfuerte">{{curso.nombre}}</div>\n                          <div [style.background-color]="carrera.colorsuave">Créditos: {{curso.creditos}}</div>\n                        </ion-col>\n                      </ion-row>\n                    </ng-container>\n                  </button>\n                </ion-col>\n\n                <ion-buttons>\n                  <button class="ion-button" outline (click)="presentPopover(curso.nombre,curso.descripcion,curso.codigo,curso.creditos,carrera.colorfuerte,carrera.colorsuave)">\n                    <ion-icon class="info" name="more"></ion-icon>\n                  </button>\n                </ion-buttons>\n              </ion-row>\n            </ion-list>\n          </ng-container>\n        </ion-item>\n      </ion-list>\n    </ion-slide>\n  </ion-slides>\n</ion-content>'/*ion-inline-end:"/home/melissa/Documentos/Fiusapp/app/src/pages/pensum/pensum.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],

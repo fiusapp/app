@@ -16,6 +16,7 @@ export class RedesPage {
   items=[];
   temp:string[];
   carreras: Carrera[];
+  colorf='#5e93ee';
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,

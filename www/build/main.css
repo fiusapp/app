@@ -25690,26 +25690,15 @@ page-pensum ion-slides {
   height: auto;
 }
 
-.body {
-  background-image: url("../../assets/imgs/escudo.jpg");
-}
-
 .grid-basic-page {
   padding: 0px;
 }
 
 .grid-basic-page ion-col div {
-  border: 0px solid #457fe4;
+  border: 0px solid;
   border-radius: 0px;
   padding: 5px 7px;
   text-align: center;
-}
-
-.nav {
-  padding: 1px;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
 }
 
 .imagen {
@@ -25717,13 +25706,13 @@ page-pensum ion-slides {
 }
 
 .opcional {
-  border: 2px solid #103677;
+  border: 2px solid;
   border-style: dashed;
 }
 
 .obligatorio {
-  border-color: #5e93ee;
-  border-style: inset;
+  border: 2px #66656e;
+  border-style: outset;
 }
 
 .ion-button {
@@ -25734,6 +25723,15 @@ page-pensum ion-slides {
   padding: 1px;
   font-size: 18px;
   background-color: #ffffff;
+}
+
+.md .custom-alert-danger > div,
+.ios .custom-alert-danger > div,
+.wp .custom-alert-danger > div {
+  background: white;
+  color: black;
+  margin-bottom: 10px;
+  text-align: justify;
 }
 
 .imagen {
