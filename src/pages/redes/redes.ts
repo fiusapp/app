@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DataFinder } from '../../../datafinder';
 import { Carrera } from '../../models/Carrera';
 import { PensumPage } from '../pensum/pensum';
-import {} from '../../../src/Data/data.json';
+
 
 @IonicPage()
 @Component({
@@ -14,13 +14,18 @@ export class RedesPage {
 
   searchQuery: string = '';
   items=[];
+  body:string;
   temp:string[];
+  temp2:string;
   carreras: Carrera[];
   colorf='#5e93ee';
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private datafinder: DataFinder) {
+    private datafinder: DataFinder,
+  ) {
+
+      this.body="{ \"ejemplo\":\"uno\"}";
       
   }
 
@@ -29,9 +34,16 @@ export class RedesPage {
       this.carreras = data.Carreras;
       this.initializeItems(this.carreras);
     });
+    
+    //var jsonfile = require('json');
+    //var file = 'assets/Progreso/estudiante.json';
+    //jsonfile.readFile(file, function(err, obj) {
+    //  console.dir(obj)
+    //})
   }
 
   initializeItems(carreras:any) {
+    
     
     for (let nombre of carreras){
       this.items.push(nombre.nombre);
@@ -56,6 +68,8 @@ export class RedesPage {
   seleccion(carrera: Carrera){
     this.navCtrl.push(PensumPage,{"carrera": carrera});
   }
+
+  
   getItems(ev: any) {
     let val = ev.target.value;
 

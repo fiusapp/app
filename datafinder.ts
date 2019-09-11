@@ -27,6 +27,24 @@ export class DataFinder {
     }).catch((reason) => this.handleError(reason));
   }
 
+  public postJSONData(filePath: string, body:string) : Promise<any> {
+    
+    return new Promise((resolve, reject) => {
+      this.http.post(filePath,body)
+        .subscribe(
+          res => {
+            if (!res.ok) {
+              console.log("uno");
+              reject("Failed with status: " + res.status + "\nTrying to find fil at " + filePath);
+            }
+            console.log("dos");
+            var jsonRes = res.json();
+            resolve(jsonRes);
+          }
+        );
+    }).catch((reason) => this.handleError(reason));
+  }
+
   /* Takes an error, logs it to the console, and throws it */
   private handleError (error: Response | any) {
     let errMsg: string;

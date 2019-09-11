@@ -15,7 +15,8 @@
           {{area.nombre}}
           <ng-container *ngFor="let curso of area.cursos">
             <ion-list *ngIf="curso.pre.length==0">
-              <button (click)="presentPopover(curso.nombre,curso.descripcion,curso.codigo,curso.creditos,carrera.colorfuerte,carrera.colorsuave)" [disabled]="isenabled" ion-item class="grid-basic-page">
+                <input [(ngModel)]="curso.nombre" type="hidden">
+              <button (click)="presentPopover(curso,list)" [disabled]=false ion-item class="grid-basic-page">
                 <ng-container *ngIf="curso.tipo=='obligatorio'">
                   <ion-row [style.background-color]="carrera.colorfuerte">
                     <ion-col>
@@ -40,7 +41,7 @@
               <ion-row>
 
                 <ion-col>
-                  <button (click)="presentPopover(curso.nombre,curso.descripcion,curso.codigo,curso.creditos,carrera.colorfuerte,carrera.colorsuave)" [disabled]="!isenabled" ion-item class="grid-basic-page">
+                  <button (click)="presentPopover(curso)" [disabled]=true ion-item class="grid-basic-page">
                     <ng-container *ngIf="curso.tipo=='obligatorio'">
                       <ion-row [style.background-color]="carrera.colorfuerte">
                         <ion-col>
@@ -63,7 +64,7 @@
                 </ion-col>
 
                 <ion-buttons>
-                  <button class="ion-button" outline (click)="presentPopover(curso.nombre,curso.descripcion,curso.codigo,curso.creditos,carrera.colorfuerte,carrera.colorsuave)">
+                  <button class="ion-button" outline (click)="presentPopover(curso)">
                     <ion-icon class="info" name="more"></ion-icon>
                   </button>
                 </ion-buttons>

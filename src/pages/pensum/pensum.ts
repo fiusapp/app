@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Carrera } from '../../models/Carrera';
+import { Curso } from '../../models/Curso';
 
 @IonicPage()
 @Component({
@@ -12,6 +13,7 @@ export class PensumPage {
   carrera: Carrera;
   isenabled: boolean = false;
   temp: string;
+  ejemplo=[];
   colorCarrera:string;
   constructor(
     public navCtrl: NavController,
@@ -21,24 +23,20 @@ export class PensumPage {
 
   }
 
-  SeleccionCurso(curso: string, codigo: string) {
-    alert("S:" + curso + " " + codigo);
-  }
 
-
-  presentPopover(nombre:string, descripcion:string, codigo:string, creditos:string, colorfuerte:string, colorsuave:string) {
-    
+  presentPopover(c:Curso, lista:any) {
+    console.log(lista);
     let alert = this.informacion.create({
-      title: nombre,
-      message: 'Codigo: '+codigo+
+      title: c.nombre,
+      message: 'Codigo: '+c.codigo+
       '<br>'+
-      '<br>Descripción: ' +descripcion+
+      '<br>Descripción: ' +c.descripcion+
       '<br>'+
-      '<br>Total de Créditos con '+nombre+' ganado :'+creditos+
+      '<br>Total de Créditos con '+c.nombre+' ganado :'+c.creditos+
       '<br>'+
       '<br>Cursos a ganar antes (Pre-Requisitos):'+
       '<br>'+
-      '<br>Cursos que habilita '+nombre+' (Post-Requisitos):',
+      '<br>Cursos que habilita '+c.nombre+' (Post-Requisitos):',
       buttons: [
         
         {
@@ -57,6 +55,14 @@ export class PensumPage {
 
   ionViewDidLoad() {
 
+    this.ejemplo.push({ 'name': 'screenA', 'width': 450, 'height': 250 });
+    this.ejemplo.push({ 'name': 'screenB', 'width': 650, 'height': 350 });
+    this.ejemplo.push({ 'name': 'screenC', 'width': 750, 'height': 120 });
+    this.ejemplo.push({ 'name': 'screenD', 'width': 250, 'height': 60 });
+    this.ejemplo.push({ 'name': 'screenE', 'width': 390, 'height': 120 });
+    this.ejemplo.push({ 'name': 'screenF', 'width': 1240, 'height': 650 });
+
+    localStorage.setItem('ejemplo', JSON.stringify('ejemplo'));
   }
 
 }

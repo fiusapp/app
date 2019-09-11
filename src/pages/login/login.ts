@@ -14,6 +14,7 @@ import { InicioPage } from '../inicio/inicio';
   templateUrl: 'login.html',
 })
 export class LoginPage {
+  storageRef: Firebase.storage.Reference;
 
   constructor(
     public navCtrl: NavController, 
@@ -23,8 +24,17 @@ export class LoginPage {
   ) {
 }
 
+
 login(){
   this.navCtrl.setRoot(InicioPage);
+  this.downloadfiledata();
+}
+
+downloadfiledata(){
+  //referencia del archivo data en firebase
+  this.storageRef = Firebase.storage().refFromURL("https://firebasestorage.googleapis.com/v0/b/fiusapp-3cd1a.appspot.com/o/data.json?alt=media&token=024961fe-54da-4757-b4ab-0c4dc1baa05c");
+  console.log("la Url: ", this.storageRef);
+  
 }
 
   /*login(){

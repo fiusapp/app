@@ -43,8 +43,11 @@
     "ionic-angular": "3.9.2",
     "ionic-native": "^2.9.0",
     "ionicons": "3.0.0",
+    "jsonfile": "^4.0.0",
+    "ng2-translate": "^5.0.0",
     "rxjs": "^5.5.10",
     "sw-toolbox": "3.6.0",
+    "write-json-file": "^2.3.0",
     "zone.js": "0.8.20"
   },
   "devDependencies": {

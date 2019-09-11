@@ -160,6 +160,7 @@ var RedesPage = (function () {
         this.searchQuery = '';
         this.items = [];
         this.colorf = '#5e93ee';
+        this.body = "{ \"ejemplo\":\"uno\"}";
     }
     RedesPage.prototype.ionViewDidLoad = function () {
         var _this = this;
@@ -167,6 +168,11 @@ var RedesPage = (function () {
             _this.carreras = data.Carreras;
             _this.initializeItems(_this.carreras);
         });
+        //var jsonfile = require('json');
+        //var file = 'assets/Progreso/estudiante.json';
+        //jsonfile.readFile(file, function(err, obj) {
+        //  console.dir(obj)
+        //})
     };
     RedesPage.prototype.initializeItems = function (carreras) {
         for (var _i = 0, carreras_1 = carreras; _i < carreras_1.length; _i++) {
@@ -240,23 +246,22 @@ var PensumPage = (function () {
         this.navParams = navParams;
         this.informacion = informacion;
         this.isenabled = false;
+        this.ejemplo = [];
         this.carrera = this.navParams.get("carrera");
     }
-    PensumPage.prototype.SeleccionCurso = function (curso, codigo) {
-        alert("S:" + curso + " " + codigo);
-    };
-    PensumPage.prototype.presentPopover = function (nombre, descripcion, codigo, creditos, colorfuerte, colorsuave) {
+    PensumPage.prototype.presentPopover = function (c, lista) {
+        console.log(lista);
         var alert = this.informacion.create({
-            title: nombre,
-            message: 'Codigo: ' + codigo +
+            title: c.nombre,
+            message: 'Codigo: ' + c.codigo +
                 '<br>' +
-                '<br>Descripción: ' + descripcion +
+                '<br>Descripción: ' + c.descripcion +
                 '<br>' +
-                '<br>Total de Créditos con ' + nombre + ' ganado :' + creditos +
+                '<br>Total de Créditos con ' + c.nombre + ' ganado :' + c.creditos +
                 '<br>' +
                 '<br>Cursos a ganar antes (Pre-Requisitos):' +
                 '<br>' +
-                '<br>Cursos que habilita ' + nombre + ' (Post-Requisitos):',
+                '<br>Cursos que habilita ' + c.nombre + ' (Post-Requisitos):',
             buttons: [
                 {
                     text: 'Aceptar',
@@ -269,12 +274,19 @@ var PensumPage = (function () {
         alert.present();
     };
     PensumPage.prototype.ionViewDidLoad = function () {
+        this.ejemplo.push({ 'name': 'screenA', 'width': 450, 'height': 250 });
+        this.ejemplo.push({ 'name': 'screenB', 'width': 650, 'height': 350 });
+        this.ejemplo.push({ 'name': 'screenC', 'width': 750, 'height': 120 });
+        this.ejemplo.push({ 'name': 'screenD', 'width': 250, 'height': 60 });
+        this.ejemplo.push({ 'name': 'screenE', 'width': 390, 'height': 120 });
+        this.ejemplo.push({ 'name': 'screenF', 'width': 1240, 'height': 650 });
+        localStorage.setItem('ejemplo', JSON.stringify('ejemplo'));
     };
     return PensumPage;
 }());
 PensumPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-        selector: 'page-pensum',template:/*ion-inline-start:"/home/melissa/Documentos/Fiusapp/app/src/pages/pensum/pensum.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Redes de Estudio</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <ion-slides pager>\n    <ion-slide *ngFor="let semestre of carrera.semestres">\n      <ion-list>\n        <ion-item text-center>{{carrera.codigo}} {{carrera.nombre}} - Semestre {{semestre.numero}}\n        </ion-item>\n        <ion-item *ngFor="let area of semestre.areas">\n          {{area.nombre}}\n          <ng-container *ngFor="let curso of area.cursos">\n            <ion-list *ngIf="curso.pre.length==0">\n              <button (click)="presentPopover(curso.nombre,curso.descripcion,curso.codigo,curso.creditos,carrera.colorfuerte,carrera.colorsuave)" [disabled]="isenabled" ion-item class="grid-basic-page">\n                <ng-container *ngIf="curso.tipo==\'obligatorio\'">\n                  <ion-row [style.background-color]="carrera.colorfuerte">\n                    <ion-col>\n                      <div [style.background-color]="carrera.colorsuave">Código: {{curso.codigo}}</div>\n                      <div style="font-weight: bold;" [style.background-color]="carrera.colorfuerte">{{curso.nombre}}</div>\n                      <div [style.background-color]="carrera.colorsuave">Créditos: {{curso.creditos}}</div>\n                    </ion-col>\n                  </ion-row>\n                </ng-container>\n                <ng-container *ngIf="curso.tipo==\'opcional\'">\n                  <ion-row [style.background-color]="carrera.colorsuave" class="opcional">\n                    <ion-col>\n                      <div [style.background-color]="carrera.colorsuave">Código: {{curso.codigo}}</div>\n                      <div style="font-weight: bold;" [style.background-color]="carrera.colorfuerte">{{curso.nombre}}</div>\n                      <div [style.background-color]="carrera.colorsuave">Créditos: {{curso.creditos}}</div>\n                    </ion-col>\n                  </ion-row>\n                </ng-container>\n              </button>\n            </ion-list>\n            <ion-list *ngIf="curso.pre.length!=0">\n              <ion-row>\n\n                <ion-col>\n                  <button (click)="presentPopover(curso.nombre,curso.descripcion,curso.codigo,curso.creditos,carrera.colorfuerte,carrera.colorsuave)" [disabled]="!isenabled" ion-item class="grid-basic-page">\n                    <ng-container *ngIf="curso.tipo==\'obligatorio\'">\n                      <ion-row [style.background-color]="carrera.colorfuerte">\n                        <ion-col>\n                          <div [style.background-color]="carrera.colorsuave">Código: {{curso.codigo}}</div>\n                          <div style="font-weight: bold;" [style.background-color]="carrera.colorfuerte">{{curso.nombre}}</div>\n                          <div [style.background-color]="carrera.colorsuave">Créditos: {{curso.creditos}}</div>\n                        </ion-col>\n                      </ion-row>\n                    </ng-container>\n                    <ng-container *ngIf="curso.tipo==\'opcional\'">\n                      <ion-row [style.background-color]="carrera.colorsuave" class="opcional">\n                        <ion-col>\n                          <div [style.background-color]="carrera.colorsuave">Código: {{curso.codigo}}</div>\n                          <div style="font-weight: bold;" [style.background-color]="carrera.colorfuerte">{{curso.nombre}}</div>\n                          <div [style.background-color]="carrera.colorsuave">Créditos: {{curso.creditos}}</div>\n                        </ion-col>\n                      </ion-row>\n                    </ng-container>\n                  </button>\n                </ion-col>\n\n                <ion-buttons>\n                  <button class="ion-button" outline (click)="presentPopover(curso.nombre,curso.descripcion,curso.codigo,curso.creditos,carrera.colorfuerte,carrera.colorsuave)">\n                    <ion-icon class="info" name="more"></ion-icon>\n                  </button>\n                </ion-buttons>\n              </ion-row>\n            </ion-list>\n          </ng-container>\n        </ion-item>\n      </ion-list>\n    </ion-slide>\n  </ion-slides>\n</ion-content>'/*ion-inline-end:"/home/melissa/Documentos/Fiusapp/app/src/pages/pensum/pensum.html"*/,
+        selector: 'page-pensum',template:/*ion-inline-start:"/home/melissa/Documentos/Fiusapp/app/src/pages/pensum/pensum.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Redes de Estudio</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <ion-slides pager>\n    <ion-slide *ngFor="let semestre of carrera.semestres">\n      <ion-list>\n        <ion-item text-center>{{carrera.codigo}} {{carrera.nombre}} - Semestre {{semestre.numero}}\n        </ion-item>\n        <ion-item *ngFor="let area of semestre.areas">\n          {{area.nombre}}\n          <ng-container *ngFor="let curso of area.cursos">\n            <ion-list *ngIf="curso.pre.length==0">\n                <input [(ngModel)]="curso.nombre" type="hidden">\n              <button (click)="presentPopover(curso,list)" [disabled]=false ion-item class="grid-basic-page">\n                <ng-container *ngIf="curso.tipo==\'obligatorio\'">\n                  <ion-row [style.background-color]="carrera.colorfuerte">\n                    <ion-col>\n                      <div [style.background-color]="carrera.colorsuave">Código: {{curso.codigo}}</div>\n                      <div style="font-weight: bold;" [style.background-color]="carrera.colorfuerte">{{curso.nombre}}</div>\n                      <div [style.background-color]="carrera.colorsuave">Créditos: {{curso.creditos}}</div>\n                    </ion-col>\n                  </ion-row>\n                </ng-container>\n                <ng-container *ngIf="curso.tipo==\'opcional\'">\n                  <ion-row [style.background-color]="carrera.colorsuave" class="opcional">\n                    <ion-col>\n                      <div [style.background-color]="carrera.colorsuave">Código: {{curso.codigo}}</div>\n                      <div style="font-weight: bold;" [style.background-color]="carrera.colorfuerte">{{curso.nombre}}</div>\n                      <div [style.background-color]="carrera.colorsuave">Créditos: {{curso.creditos}}</div>\n                    </ion-col>\n                  </ion-row>\n                </ng-container>\n              </button>\n            </ion-list>\n            <ion-list *ngIf="curso.pre.length!=0">\n              <ion-row>\n\n                <ion-col>\n                  <button (click)="presentPopover(curso)" [disabled]=true ion-item class="grid-basic-page">\n                    <ng-container *ngIf="curso.tipo==\'obligatorio\'">\n                      <ion-row [style.background-color]="carrera.colorfuerte">\n                        <ion-col>\n                          <div [style.background-color]="carrera.colorsuave">Código: {{curso.codigo}}</div>\n                          <div style="font-weight: bold;" [style.background-color]="carrera.colorfuerte">{{curso.nombre}}</div>\n                          <div [style.background-color]="carrera.colorsuave">Créditos: {{curso.creditos}}</div>\n                        </ion-col>\n                      </ion-row>\n                    </ng-container>\n                    <ng-container *ngIf="curso.tipo==\'opcional\'">\n                      <ion-row [style.background-color]="carrera.colorsuave" class="opcional">\n                        <ion-col>\n                          <div [style.background-color]="carrera.colorsuave">Código: {{curso.codigo}}</div>\n                          <div style="font-weight: bold;" [style.background-color]="carrera.colorfuerte">{{curso.nombre}}</div>\n                          <div [style.background-color]="carrera.colorsuave">Créditos: {{curso.creditos}}</div>\n                        </ion-col>\n                      </ion-row>\n                    </ng-container>\n                  </button>\n                </ion-col>\n\n                <ion-buttons>\n                  <button class="ion-button" outline (click)="presentPopover(curso)">\n                    <ion-icon class="info" name="more"></ion-icon>\n                  </button>\n                </ion-buttons>\n              </ion-row>\n            </ion-list>\n          </ng-container>\n        </ion-item>\n      </ion-list>\n    </ion-slide>\n  </ion-slides>\n</ion-content>'/*ion-inline-end:"/home/melissa/Documentos/Fiusapp/app/src/pages/pensum/pensum.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
@@ -534,6 +546,21 @@ var DataFinder = (function () {
             });
         }).catch(function (reason) { return _this.handleError(reason); });
     };
+    DataFinder.prototype.postJSONData = function (filePath, body) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post(filePath, body)
+                .subscribe(function (res) {
+                if (!res.ok) {
+                    console.log("uno");
+                    reject("Failed with status: " + res.status + "\nTrying to find fil at " + filePath);
+                }
+                console.log("dos");
+                var jsonRes = res.json();
+                resolve(jsonRes);
+            });
+        }).catch(function (reason) { return _this.handleError(reason); });
+    };
     /* Takes an error, logs it to the console, and throws it */
     DataFinder.prototype.handleError = function (error) {
         var errMsg;
@@ -559,13 +586,13 @@ DataFinder = __decorate([
 
 /***/ }),
 
-/***/ 358:
+/***/ 359:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(359);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(363);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(364);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -573,7 +600,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 363:
+/***/ 364:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -583,12 +610,12 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(264);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(265);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(267);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(268);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__datafinder__ = __webpack_require__(218);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_google_plus__ = __webpack_require__(114);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angularfire2__ = __webpack_require__(407);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_firebase__ = __webpack_require__(690);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angularfire2__ = __webpack_require__(417);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_firebase__ = __webpack_require__(225);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_firebase__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_component__ = __webpack_require__(698);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_inicio_inicio__ = __webpack_require__(155);
@@ -701,8 +728,8 @@ AppModule = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(265);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(264);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(268);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(267);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(86);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -749,7 +776,9 @@ MyApp = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_google_plus__ = __webpack_require__(114);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__inicio_inicio__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(225);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__inicio_inicio__ = __webpack_require__(155);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -764,6 +793,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var LoginPage = (function () {
     function LoginPage(navCtrl, navParams, loadingCtrl, googleplus) {
         this.navCtrl = navCtrl;
@@ -772,7 +802,13 @@ var LoginPage = (function () {
         this.googleplus = googleplus;
     }
     LoginPage.prototype.login = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__inicio_inicio__["a" /* InicioPage */]);
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__inicio_inicio__["a" /* InicioPage */]);
+        this.downloadfiledata();
+    };
+    LoginPage.prototype.downloadfiledata = function () {
+        //referencia del archivo data en firebase
+        this.storageRef = __WEBPACK_IMPORTED_MODULE_3_firebase___default.a.storage().refFromURL("https://firebasestorage.googleapis.com/v0/b/fiusapp-3cd1a.appspot.com/o/data.json?alt=media&token=024961fe-54da-4757-b4ab-0c4dc1baa05c");
+        console.log("la Url: ", this.storageRef);
     };
     /*login(){
       this.googleplus.login({
@@ -797,15 +833,13 @@ LoginPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
         selector: 'page-login',template:/*ion-inline-start:"/home/melissa/Documentos/Fiusapp/app/src/pages/login/login.html"*/'\n<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>Fiusapp</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <form>\n    <ion-list>\n      <ion-item text-center>\n        <ion-img width="192" height="192" src="assets/logo.png" ></ion-img>\n      </ion-item>\n    </ion-list>\n    \n  </form>\n\n  <button ion-button icon-left (click) ="login()" block outline>\n    <ion-icon name="logo-googleplus"></ion-icon>\n    INICIAR CON GOOGLE\n  </button>\n  \n\n  \n    \n</ion-content>'/*ion-inline-end:"/home/melissa/Documentos/Fiusapp/app/src/pages/login/login.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */],
-        __WEBPACK_IMPORTED_MODULE_2__ionic_native_google_plus__["a" /* GooglePlus */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_google_plus__["a" /* GooglePlus */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_google_plus__["a" /* GooglePlus */]) === "function" && _d || Object])
 ], LoginPage);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=login.js.map
 
 /***/ })
 
-},[358]);
+},[359]);
 //# sourceMappingURL=main.js.map
