@@ -1,14 +1,14 @@
 webpackJsonp([1],{
 
-/***/ 828:
+/***/ 705:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UnidadesPageModule", function() { return UnidadesPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RedesPageModule", function() { return RedesPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__unidades__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__redes__ = __webpack_require__(156);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var UnidadesPageModule = (function () {
-    function UnidadesPageModule() {
+var RedesPageModule = (function () {
+    function RedesPageModule() {
     }
-    return UnidadesPageModule;
+    return RedesPageModule;
 }());
-UnidadesPageModule = __decorate([
+RedesPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__unidades__["a" /* UnidadesPage */],
+            __WEBPACK_IMPORTED_MODULE_2__redes__["a" /* RedesPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__unidades__["a" /* UnidadesPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__redes__["a" /* RedesPage */]),
         ],
     })
-], UnidadesPageModule);
+], RedesPageModule);
 
-//# sourceMappingURL=unidades.module.js.map
+//# sourceMappingURL=redes.module.js.map
 
 /***/ })
 

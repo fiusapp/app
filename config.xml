@@ -82,10 +82,10 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <plugin name="cordova-plugin-inappbrowser" spec="^2.0.2" />
-    <plugin name="cordova-plugin-googleplus" spec="https://github.com/EddyVerbruggen/cordova-plugin-googleplus">
-        <variable name="REVERSED_CLIENT_ID" value="449937519255-jnr8rt28k4kapia6ab5n7a6iiivsjj2f.apps.googleusercontent.com" />
-    </plugin>
     <engine name="ios" spec="4.5.4" />
     <engine name="browser" spec="5.0.3" />
     <engine name="android" spec="7.1.0" />
+    <plugin name="cordova-plugin-googleplus" spec="git+https://github.com/EddyVerbruggen/cordova-plugin-googleplus.git">
+        <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.207784854226-2onf480r4ja1uu1lakv7rgkepi9tc9nr" />
+    </plugin>
 </widget>

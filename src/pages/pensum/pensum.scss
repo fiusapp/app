@@ -3,3 +3,52 @@ page-pensum {
         height: auto;
       }
 }
+
+.grid-basic-page {
+
+    ion-col div {
+      //background-color: #f0f5ff;
+      border: 0px solid;
+      border-radius: 0px;
+      padding: 5px 7px;
+      text-align: center;
+    }
+    padding:0px;
+}
+
+
+.imagen{
+    background-image: url('../../assets/imgs/escudo.jpg')
+}
+
+.opcional{
+    border: 2px solid;
+    border-style: dashed;
+}
+
+.obligatorio{  
+    border: 2px #66656e;
+    border-style: outset;
+}
+
+.ion-button{
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 1px;
+    font-size: 18px;
+    background-color: #ffffff;
+    //border: 5px solid #2b0303;
+}
+
+.md,
+.ios,
+.wp {
+  .custom-alert-danger {
+    > div {
+      background: rgb(255, 255, 255); // if you don't use .md, .ios, .mp initially, you'd have to use !important here.
+      color: rgb(0, 0, 0);
+      margin-bottom: 10px;
+      text-align: justify;
+    }
+  }
+}

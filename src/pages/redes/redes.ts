@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DataFinder } from '../../../datafinder';
 import { Carrera } from '../../models/Carrera';
 import { PensumPage } from '../pensum/pensum';
-import {} from '../../../src/Data/data.json';
+
 
 @IonicPage()
 @Component({
@@ -13,23 +13,42 @@ import {} from '../../../src/Data/data.json';
 export class RedesPage {
 
   searchQuery: string = '';
-  items: string[];
+  items=[];
+  body:string;
+  temp:string[];
+  temp2:string;
   carreras: Carrera[];
+  colorf='#5e93ee';
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private datafinder: DataFinder) {
-      this.initializeItems();
+    private datafinder: DataFinder,
+  ) {
+
+      this.body="{ \"ejemplo\":\"uno\"}";
+      
   }
 
   ionViewDidLoad() {
     this.datafinder.getJSONData("assets/Data/data.json").then(data => {
       this.carreras = data.Carreras;
+      this.initializeItems(this.carreras);
     });
+    
+    //var jsonfile = require('json');
+    //var file = 'assets/Progreso/estudiante.json';
+    //jsonfile.readFile(file, function(err, obj) {
+    //  console.dir(obj)
+    //})
   }
 
-  initializeItems() {
-    this.items = [
+  initializeItems(carreras:any) {
+    
+    
+    for (let nombre of carreras){
+      this.items.push(nombre.nombre);
+    }
+    this.temp=[
       '01 Ingenieria Civil',
       '01 Ingenieria Civil 2017',
       '02 Ingenieria Quimica',
@@ -44,17 +63,14 @@ export class RedesPage {
       'Licenciatura en Matematica',
       'Licenciatura en Fisica'
     ];
-    
   }
 
   seleccion(carrera: Carrera){
     this.navCtrl.push(PensumPage,{"carrera": carrera});
   }
-  /*getItems(ev: any) {
-    // Reset items back to all of the items
-    this.initializeItems();
 
-    // set val to the value of the searchbar
+  
+  getItems(ev: any) {
     let val = ev.target.value;
 
     // if the value is an empty string don't filter the items
@@ -64,6 +80,6 @@ export class RedesPage {
         
       })
     }
-  }*/
+  }
 
 }
